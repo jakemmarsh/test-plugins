@@ -1,0 +1,13 @@
+{
+  "name": "test-plugins",
+  "owner": {
+    "name": "Jake Marsh"
+  },
+  "plugins": [
+    {
+      "name": "test-plugin",
+      "source": "./test-plugin",
+      "description": "A test plugin demonstrating hooks, skills, agents, and MCP servers"
+    }
+  ]
+}
