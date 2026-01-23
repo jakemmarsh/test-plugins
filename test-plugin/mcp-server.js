@@ -18,21 +18,6 @@ function sendResponse(response) {
 
 log('MCP server starting...');
 
-// Debug: check stdin state
-console.error(`[test-plugin] stdin isTTY: ${process.stdin.isTTY}, readable: ${process.stdin.readable}`);
-process.stdin.on('data', (chunk) => {
-  console.error(`[test-plugin] raw stdin data (${chunk.length} bytes): ${chunk.toString().substring(0, 200)}`);
-  log(`Raw stdin data: ${chunk.toString().substring(0, 200)}`);
-});
-process.stdin.on('end', () => {
-  console.error('[test-plugin] stdin ended');
-  log('stdin ended');
-});
-process.stdin.on('error', (err) => {
-  console.error(`[test-plugin] stdin error: ${err.message}`);
-  log(`stdin error: ${err.message}`);
-});
-
 // Handle JSON-RPC messages over stdio (newline-delimited JSON)
 const rl = readline.createInterface({ input: process.stdin });
 
