@@ -12,45 +12,25 @@ function log(message) {
 
 function sendResponse(response) {
   const responseStr = JSON.stringify(response);
-  process.stdout.write(`Content-Length: ${Buffer.byteLength(responseStr)}\r\n\r\n${responseStr}`);
+  process.stdout.write(responseStr + '\n');
   log(`Sent response: ${responseStr}`);
 }
 
 log('MCP server starting...');
 
-// Handle JSON-RPC messages over stdio
-let buffer = '';
+// Handle JSON-RPC messages over stdio (newline-delimited JSON)
+const rl = readline.createInterface({ input: process.stdin });
 
-process.stdin.on('data', (chunk) => {
-  buffer += chunk.toString();
+rl.on('line', (line) => {
+  const trimmed = line.trim();
+  if (!trimmed) return;
 
-  // Parse Content-Length header and body
-  while (true) {
-    const headerEnd = buffer.indexOf('\r\n\r\n');
-    if (headerEnd === -1) break;
-
-    const header = buffer.substring(0, headerEnd);
-    const contentLengthMatch = header.match(/Content-Length: (\d+)/i);
-    if (!contentLengthMatch) {
-      buffer = buffer.substring(headerEnd + 4);
-      continue;
-    }
-
-    const contentLength = parseInt(contentLengthMatch[1], 10);
-    const bodyStart = headerEnd + 4;
-
-    if (buffer.length < bodyStart + contentLength) break;
-
-    const body = buffer.substring(bodyStart, bodyStart + contentLength);
-    buffer = buffer.substring(bodyStart + contentLength);
-
-    try {
-      const message = JSON.parse(body);
-      log(`Received: ${JSON.stringify(message)}`);
-      handleMessage(message);
-    } catch (e) {
-      log(`Parse error: ${e.message}`);
-    }
+  try {
+    const message = JSON.parse(trimmed);
+    log(`Received: ${JSON.stringify(message)}`);
+    handleMessage(message);
+  } catch (e) {
+    log(`Parse error: ${e.message}`);
   }
 });
 
@@ -149,7 +129,7 @@ function handleMessage(message) {
   }
 }
 
-process.stdin.on('end', () => {
+rl.on('close', () => {
   log('MCP server shutting down');
   process.exit(0);
 });
