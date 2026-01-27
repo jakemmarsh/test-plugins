@@ -8,6 +8,61 @@
       "name": "test-plugin",
       "source": "./test-plugin",
       "description": "A test plugin demonstrating hooks, skills, agents, and MCP servers"
+    },
+    {
+      "name": "productivity",
+      "source": "./productivity",
+      "description": "General productivity - task management, workplace memory, daily planning, activity sync"
+    },
+    {
+      "name": "enterprise-search",
+      "source": "./enterprise-search",
+      "description": "Unified search across your company's tools - find anything across email, chat, docs, and wikis in one query"
+    },
+    {
+      "name": "plugin-create-customize",
+      "source": "./plugin-create-customize",
+      "description": "Create and customize plugins for your role - build new plugins or tailor existing ones to your organization's tools and workflows"
+    },
+    {
+      "name": "sales",
+      "source": "./sales",
+      "description": "Sales team productivity - prospecting, outreach, pipeline management, call prep, and deal strategy"
+    },
+    {
+      "name": "finance",
+      "source": "./finance",
+      "description": "Finance and accounting productivity - journal entries, reconciliation, financial statements, variance analysis, and audit support"
+    },
+    {
+      "name": "data",
+      "source": "./data",
+      "description": "Data analyst productivity - SQL queries, data exploration, visualization, dashboards, and insight generation"
+    },
+    {
+      "name": "legal",
+      "source": "./legal",
+      "description": "In-house legal productivity - contract review, NDA triage, compliance workflows, legal briefs, and knowledge management"
+    },
+    {
+      "name": "marketing",
+      "source": "./marketing",
+      "description": "Marketing productivity - content creation, campaign planning, brand voice, competitive analysis, and performance reporting"
+    },
+    {
+      "name": "customer-support",
+      "source": "./customer-support",
+      "description": "Customer support and success productivity - account health, customer research, QBR prep, response drafting, and usage analysis"
+    },
+    {
+      "name": "product-management",
+      "source": "./product-management",
+      "description": "Product management productivity - feature specs, roadmap planning, stakeholder updates, user research synthesis, and competitive analysis"
+    },
+    {
+      "name": "bio-research",
+      "source": "./bio-research",
+      "description": "Biological research - literature search, single-cell analysis, sequencing pipelines, clinical trial protocols, drug discovery, and scientific strategy"
     }
   ]
 }

@@ -1,0 +1,8 @@
+{
+  "name": "plugin-create-customize",
+  "version": "1.0.0",
+  "description": "Create and customize plugins for your role - build new plugins or tailor existing ones to your organization's tools and workflows",
+  "author": {
+    "name": "Jake Marsh"
+  }
+}

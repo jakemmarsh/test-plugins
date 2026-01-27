@@ -1,0 +1,8 @@
+{
+  "name": "enterprise-search",
+  "version": "1.0.0",
+  "description": "Unified search across your company's tools - find anything across email, chat, docs, and wikis in one query",
+  "author": {
+    "name": "Jake Marsh"
+  }
+}

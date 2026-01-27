@@ -1,0 +1,8 @@
+{
+  "name": "bio-research",
+  "version": "1.0.0",
+  "description": "One-stop shop for biological research — literature search, data analysis, pipeline execution, clinical trials, and scientific strategy",
+  "author": {
+    "name": "Jake Marsh"
+  }
+}
