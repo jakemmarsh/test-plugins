@@ -1,0 +1,8 @@
+{
+  "name": "data",
+  "version": "1.0.0",
+  "description": "Data analyst productivity - SQL queries, data exploration, visualization, dashboards, and insight generation",
+  "author": {
+    "name": "Jake Marsh"
+  }
+}

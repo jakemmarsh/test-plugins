@@ -1,0 +1,8 @@
+{
+  "name": "finance",
+  "version": "1.0.0",
+  "description": "Finance and accounting productivity - journal entries, reconciliation, financial statements, variance analysis, and audit support",
+  "author": {
+    "name": "Jake Marsh"
+  }
+}
