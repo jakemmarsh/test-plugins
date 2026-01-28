@@ -1,0 +1,8 @@
+{
+  "name": "cowork-plugin-management",
+  "version": "0.1.0",
+  "description": "Manage and customize Cowork plugins for your organization's tools and workflows",
+  "author": {
+    "name": "Bence Fabian"
+  }
+}

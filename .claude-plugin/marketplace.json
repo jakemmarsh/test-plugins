@@ -20,9 +20,9 @@
       "description": "Unified search across your company's tools - find anything across email, chat, docs, and wikis in one query"
     },
     {
-      "name": "plugin-create-customize",
-      "source": "./plugin-create-customize",
-      "description": "Create and customize plugins for your role - build new plugins or tailor existing ones to your organization's tools and workflows"
+      "name": "cowork-plugin-management",
+      "source": "./cowork-plugin-management",
+      "description": "Manage and customize Cowork plugins for your organization's tools and workflows"
     },
     {
       "name": "sales",
