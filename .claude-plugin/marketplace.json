@@ -5,11 +5,6 @@
   },
   "plugins": [
     {
-      "name": "test-plugin",
-      "source": "./test-plugin",
-      "description": "A test plugin demonstrating hooks, skills, agents, and MCP servers"
-    },
-    {
       "name": "productivity",
       "source": "./productivity",
       "description": "General productivity - task management, workplace memory, daily planning, activity sync"
