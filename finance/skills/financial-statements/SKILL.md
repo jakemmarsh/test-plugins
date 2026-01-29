@@ -1,4 +1,11 @@
+---
+name: financial-statements
+description: Generate income statements, balance sheets, and cash flow statements with GAAP presentation and period-over-period comparison. Use when preparing financial statements, running flux analysis, or creating P&L reports with variance commentary.
+---
+
 # Financial Statements
+
+**Important**: This skill assists with financial statement workflows but does not provide financial advice. All statements should be reviewed by qualified financial professionals before use in reporting or filings.
 
 Formats, GAAP presentation requirements, common adjustments, and flux analysis methodology for income statements, balance sheets, and cash flow statements.
 

@@ -1,3 +1,8 @@
+---
+name: competitive-analysis
+description: Research competitors and compare positioning, messaging, content strategy, and market presence. Use when analyzing a competitor, building battlecards, identifying content gaps, comparing feature messaging, or preparing competitive positioning recommendations.
+---
+
 # Competitive Analysis Skill
 
 Frameworks and methodologies for researching competitors, comparing positioning, and identifying market opportunities.
@@ -24,7 +29,7 @@ Gather intelligence from these categories of sources:
 - **Social listening**: mentions, sentiment, share of voice across social platforms
 - **SEO tools**: keyword rankings, organic traffic estimates, content gaps
 - **Financial filings**: revenue, growth rate, investment areas (for public companies)
-- **Community forums**: Reddit, Stack Overflow, industry Slack groups — user sentiment
+- **Community forums**: community forums (e.g. Reddit, Discourse), industry chat groups (e.g. Slack communities) — user sentiment
 
 ### Research Process
 1. **Set scope**: define which competitors and what aspects to analyze

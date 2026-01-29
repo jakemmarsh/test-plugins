@@ -26,7 +26,7 @@
     },
     "ahrefs": {
       "type": "http",
-      "url": ""
+      "url": "https://api.ahrefs.com/mcp/mcp"
     },
     "similarweb": {
       "type": "http",

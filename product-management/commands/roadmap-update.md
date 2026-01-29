@@ -1,16 +1,19 @@
+---
+description: Update, create, or reprioritize your product roadmap
+argument-hint: "<update description>"
+---
+
 # Roadmap Update
 
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
 Update, create, or reprioritize a product roadmap.
-
-## Trigger
-
-The user wants to update their roadmap, add items to the roadmap, reprioritize work, adjust timelines, or create a new roadmap.
 
 ## Workflow
 
 ### 1. Understand Current State
 
-If a **project management tool** is connected (Asana, Linear, Jira):
+If **~~project tracker** is connected:
 - Pull current roadmap items with their statuses, assignees, and dates
 - Identify items that are overdue, at risk, or recently completed
 - Surface any items without clear owners or dates
@@ -33,7 +36,7 @@ Ask what the user wants to do:
 
 **Reprioritize**: Change the order or priority of items
 - Ask what changed (new information, strategy shift, resource change, customer feedback)
-- Apply a prioritization framework if helpful (RICE, value vs effort)
+- Apply a prioritization framework if helpful — see the **roadmap-management** skill for RICE, MoSCoW, ICE, and value-vs-effort frameworks
 - Show before/after comparison
 
 **Move timeline**: Shift dates for items
@@ -85,12 +88,7 @@ After generating the roadmap:
 
 ## Output Format
 
-Use a clear, scannable format. Tables work well for roadmap items. Use status indicators:
-- ✅ Completed
-- 🟢 On track
-- 🟡 At risk
-- 🔴 Blocked
-- ⬜ Not started
+Use a clear, scannable format. Tables work well for roadmap items. Use text status labels: **Done**, **On Track**, **At Risk**, **Blocked**, **Not Started**.
 
 ## Tips
 

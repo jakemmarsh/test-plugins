@@ -1,4 +1,13 @@
+---
+description: Generate an income statement with period-over-period comparison and variance analysis
+argument-hint: "<frequency> <period>"
+---
+
 # Income Statement Generation
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
+**Important**: This command assists with financial statement workflows but does not provide financial advice. All statements should be reviewed by qualified financial professionals before use in reporting or filings.
 
 Generate an income statement with period-over-period comparison and variance analysis. Highlight material variances for investigation.
 
@@ -21,13 +30,13 @@ Generate an income statement with period-over-period comparison and variance ana
 
 ### 1. Gather Financial Data
 
-If an ERP or data warehouse MCP server is connected:
+If ~~erp or ~~data warehouse is connected:
 - Pull trial balance or income statement data for the specified period
 - Pull comparison period data (prior period, prior year, budget/forecast)
 - Pull account hierarchy and groupings for presentation
 
 If no data source is connected:
-> Connect your ERP or data warehouse to pull financial data automatically. You can also paste trial balance data, upload a spreadsheet, or provide income statement data for analysis.
+> Connect ~~erp or ~~data warehouse to pull financial data automatically. You can also paste trial balance data, upload a spreadsheet, or provide income statement data for analysis.
 
 Prompt the user to provide:
 - Current period revenue and expense data (by account or category)

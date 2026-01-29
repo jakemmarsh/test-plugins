@@ -1,4 +1,11 @@
+---
+description: Build an interactive HTML dashboard with charts, filters, and tables
+argument-hint: "<description> [data source]"
+---
+
 # /build-dashboard - Build Interactive Dashboards
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
 
 Build a self-contained interactive HTML dashboard with charts, filters, tables, and professional styling. Opens directly in a browser -- no server or dependencies required.
 

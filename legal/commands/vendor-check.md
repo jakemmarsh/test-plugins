@@ -1,6 +1,15 @@
+---
+description: Check the status of existing agreements with a vendor across all connected systems
+argument-hint: "[vendor name]"
+---
+
 # /vendor-check -- Vendor Agreement Status
 
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
 Check the status of existing agreements with a vendor across all connected systems. Provides a consolidated view of the legal relationship.
+
+**Important**: This command assists with legal workflows but does not provide legal advice. Agreement status reports should be verified against original documents by qualified legal professionals.
 
 ## Invocation
 
@@ -44,13 +53,13 @@ Search for recent relevant correspondence:
 - NDA or agreement attachments
 - Negotiation threads
 
-#### Documents (Google Drive, SharePoint, etc.) -- If Connected
+#### Documents (e.g., Box, Egnyte, SharePoint) -- If Connected
 Search for:
 - Executed agreements
 - Redlines and drafts
 - Due diligence materials
 
-#### Chat (Slack, Teams) -- If Connected
+#### Chat (e.g., Slack, Teams) -- If Connected
 Search for recent mentions:
 - Contract requests involving this vendor
 - Legal questions about the vendor

@@ -1,13 +1,10 @@
 ---
 description: Set up your bio-research environment and explore available tools
-allowed-tools:
-  - Bash
-  - Read
-  - Write
-  - Edit
 ---
 
 # Bio-Research Start
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
 
 You are helping a biological researcher get oriented with the bio-research plugin. Walk through the following steps in order.
 
@@ -28,20 +25,20 @@ and scientific strategy — all in one place.
 Test which MCP servers are connected by listing available tools. Group the results:
 
 **Literature & Data Sources:**
-- PubMed — biomedical literature search
-- bioRxiv — preprint access (biology and medicine)
-- Wiley Scholar Gateway — academic publications
-- Synapse — collaborative research data (Sage Bionetworks)
+- ~~literature database — biomedical literature search
+- ~~literature database — preprint access (biology and medicine)
+- ~~journal access — academic publications
+- ~~data repository — collaborative research data (Sage Bionetworks)
 
 **Drug Discovery & Clinical:**
-- ChEMBL — bioactive compound database
-- Open Targets — drug target discovery platform
+- ~~chemical database — bioactive compound database
+- ~~drug target database — drug target discovery platform
 - ClinicalTrials.gov — clinical trial registry
-- Medidata — clinical trial site ranking and platform help
+- ~~clinical data platform — clinical trial site ranking and platform help
 
 **Visualization & AI:**
-- BioRender — scientific illustration
-- Owkin — AI for biology (histopathology, drug discovery)
+- ~~scientific illustration — create scientific figures and diagrams
+- ~~AI research platform — AI for biology (histopathology, drug discovery)
 
 Report which servers are connected and which are not yet set up.
 
@@ -62,9 +59,9 @@ List the analysis skills available in this plugin:
 
 Mention that two additional MCP servers are available as separate installations:
 
-- **10x Genomics** — Access 10x Genomics Cloud analysis data and workflows
+- **~~genomics platform** — Access cloud analysis data and workflows
   Install: Download `txg-node.mcpb` from https://github.com/10XGenomics/txg-mcp/releases
-- **ToolUniverse** (Harvard MIMS) — AI tools for scientific discovery
+- **~~tool database** (Harvard MIMS) — AI tools for scientific discovery
   Install: Download `tooluniverse.mcpb` from https://github.com/mims-harvard/ToolUniverse/releases
 
 These require downloading binary files and are optional.
@@ -73,9 +70,9 @@ These require downloading binary files and are optional.
 
 Ask the researcher what they're working on today. Suggest starting points based on common workflows:
 
-1. **Literature review** — "Search PubMed and bioRxiv for recent papers on [topic]"
+1. **Literature review** — "Search ~~literature database for recent papers on [topic]"
 2. **Analyze sequencing data** — "Run QC on my single-cell data" or "Set up an RNA-seq pipeline"
-3. **Drug discovery** — "Search ChEMBL for compounds targeting [protein]" or "Find drug targets for [disease]"
+3. **Drug discovery** — "Search ~~chemical database for compounds targeting [protein]" or "Find drug targets for [disease]"
 4. **Clinical trial design** — "Help me design a clinical trial protocol for [intervention]"
 5. **Data standardization** — "Convert my instrument data to Allotrope format"
 6. **Research strategy** — "Help me evaluate a new project idea"

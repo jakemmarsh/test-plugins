@@ -1,4 +1,11 @@
+---
+description: Draft a professional customer-facing response tailored to the situation and relationship
+argument-hint: "<situation description>"
+---
+
 # Draft Response
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
 
 Draft a professional, customer-facing response tailored to the situation, customer relationship, and communication context.
 
@@ -11,8 +18,8 @@ Draft a professional, customer-facing response tailored to the situation, custom
 Examples:
 - `/draft-response Acme Corp is asking when the new dashboard feature will ship`
 - `/draft-response Customer escalation — their integration has been down for 2 days`
-- `/draft-response Need to tell BetaCo their renewal price is increasing 15%`
 - `/draft-response Responding to a feature request we won't be building`
+- `/draft-response Customer hit a billing error and wants a resolution ASAP`
 
 ## Workflow
 
@@ -24,34 +31,34 @@ Parse the user's input to determine:
 - **Situation type**: Question, issue, escalation, announcement, negotiation, bad news, good news, follow-up
 - **Urgency**: Is this time-sensitive? How long has the customer been waiting?
 - **Channel**: Email, support ticket, chat, or other (adjust formality accordingly)
-- **Relationship stage**: New customer, established, at-risk, renewing, churning
+- **Relationship stage**: New customer, established, frustrated/escalated
 - **Stakeholder level**: End user, manager, executive, technical, business
 
 ### 2. Research Context
 
 Gather relevant background from available sources:
 
-**Email:**
+**~~email:**
 - Previous correspondence with this customer on this topic
 - Any commitments or timelines previously shared
 - Tone and style of the existing thread
 
-**Slack:**
+**~~chat:**
 - Internal discussions about this customer or topic
 - Any guidance from product, engineering, or leadership
 - Similar situations and how they were handled
 
-**CRM (if connected):**
-- Account health and relationship status
-- Contract details and renewal timeline
+**~~CRM (if connected):**
+- Account details and plan level
+- Contact information and key stakeholders
 - Previous escalations or sensitive issues
 
-**Support (if connected):**
+**~~support platform (if connected):**
 - Related tickets and their resolution
 - Known issues or workarounds
 - SLA status and response time commitments
 
-**Knowledge base / Docs:**
+**~~knowledge base:**
 - Official documentation or help articles to reference
 - Product roadmap information (if shareable)
 - Policy or process documentation
@@ -104,12 +111,12 @@ Produce a response tailored to the situation:
 - Identify the person accountable for resolution
 - Offer a meeting or call if appropriate for the severity
 
-**Delivering bad news (price increase, feature sunset, delay):**
+**Delivering bad news (feature sunset, delay, can't-fix):**
 - Be direct — don't bury the news
 - Explain the reasoning honestly
 - Acknowledge the impact on them specifically
 - Offer alternatives or mitigation
-- Reinforce the long-term value of the relationship
+- Provide a clear path forward
 
 **Sharing good news (feature launch, milestone, recognition):**
 - Lead with the positive outcome

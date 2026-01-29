@@ -1,16 +1,19 @@
+---
+description: Review and analyze product metrics with trend analysis and actionable insights
+argument-hint: "<time period or metric focus>"
+---
+
 # Metrics Review
 
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
 Review and analyze product metrics, identify trends, and surface actionable insights.
-
-## Trigger
-
-The user wants to review product metrics, analyze usage data, check metrics against targets, prepare a metrics review, or understand product performance.
 
 ## Workflow
 
 ### 1. Gather Metrics Data
 
-If an **analytics or BI tool** is connected:
+If **~~product analytics** is connected:
 - Pull key product metrics for the relevant time period
 - Get comparison data (previous period, same period last year, targets)
 - Pull segment breakdowns if available
@@ -28,23 +31,9 @@ Ask the user:
 
 ### 2. Organize the Metrics
 
-Structure metrics in a hierarchy:
+Structure the review using the metrics hierarchy from the **metrics-tracking** skill: North Star metric at the top, L1 health indicators (acquisition, activation, engagement, retention, revenue, satisfaction), and L2 diagnostic metrics for drill-down.
 
-**North Star Metric**: The single metric that best captures the value your product delivers to users.
-
-**L1 Metrics** (health indicators):
-- Acquisition: new users, signups, trial starts
-- Activation: users reaching key value moment
-- Engagement: active usage (DAU, WAU, MAU, sessions, actions)
-- Retention: users coming back (D1, D7, D30 retention, churn rate)
-- Revenue: MRR, ARPU, conversion rate, expansion revenue
-- Satisfaction: NPS, CSAT, support ticket volume
-
-**L2 Metrics** (diagnostic):
-- Feature-level adoption and usage
-- Funnel conversion rates at each step
-- Performance metrics (latency, errors, uptime)
-- Segment-specific breakdowns
+If the user has not defined their metrics hierarchy, help them identify their North Star and key L1 metrics before proceeding.
 
 ### 3. Analyze Trends
 

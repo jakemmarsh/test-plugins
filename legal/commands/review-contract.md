@@ -1,4 +1,11 @@
+---
+description: Review a contract against your organization's negotiation playbook — flag deviations, generate redlines, provide business impact analysis
+argument-hint: "<contract file or text>"
+---
+
 # /review-contract -- Contract Review Against Playbook
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
 
 Review a contract against your organization's negotiation playbook. Analyze each clause, flag deviations, generate redline suggestions, and provide business impact analysis.
 
@@ -14,7 +21,7 @@ Review a contract against your organization's negotiation playbook. Analyze each
 
 Accept the contract in any of these formats:
 - **File upload**: PDF, DOCX, or other document format
-- **URL**: Link to a contract in your CLM, Google Drive, or other document system
+- **URL**: Link to a contract in your CLM, cloud storage (e.g., Box, Egnyte, SharePoint), or other document system
 - **Pasted text**: Contract text pasted directly into the conversation
 
 If no contract is provided, prompt the user to supply one.

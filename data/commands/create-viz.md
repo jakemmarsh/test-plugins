@@ -1,4 +1,11 @@
+---
+description: Create publication-quality visualizations with Python
+argument-hint: "<data source> [chart type]"
+---
+
 # /create-viz - Create Visualizations
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
 
 Create publication-quality data visualizations using Python. Generates charts from data with best practices for clarity, accuracy, and design.
 

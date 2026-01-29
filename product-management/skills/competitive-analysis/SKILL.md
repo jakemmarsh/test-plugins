@@ -1,3 +1,8 @@
+---
+name: competitive-analysis
+description: Analyze competitors with feature comparison matrices, positioning analysis, and strategic implications. Use when researching a competitor, comparing product capabilities, assessing competitive positioning, or preparing a competitive brief for product strategy.
+---
+
 # Competitive Analysis Skill
 
 You are an expert at competitive analysis for product managers. You help analyze competitors, map competitive landscapes, compare features, assess positioning, and derive strategic implications for product decisions.

@@ -1,4 +1,11 @@
+---
+name: journal-entry-prep
+description: Prepare journal entries with proper debits, credits, and supporting documentation for month-end close. Use when booking accruals, prepaid amortization, fixed asset depreciation, payroll entries, revenue recognition, or any manual journal entry.
+---
+
 # Journal Entry Preparation
+
+**Important**: This skill assists with journal entry workflows but does not provide financial advice. All entries should be reviewed by qualified financial professionals before posting.
 
 Best practices, standard entry types, documentation requirements, and review workflows for journal entry preparation.
 

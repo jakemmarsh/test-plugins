@@ -1,8 +1,8 @@
 {
   "name": "cowork-plugin-management",
   "version": "0.1.0",
-  "description": "Manage and customize Cowork plugins for your organization's tools and workflows",
+  "description": "Create, customize, and manage plugins tailored to your organization's tools and workflows. Configure MCP servers, adjust plugin behavior, and adapt templates to match how your team works.",
   "author": {
-    "name": "Bence Fabian"
+    "name": "Jake Marsh"
   }
 }

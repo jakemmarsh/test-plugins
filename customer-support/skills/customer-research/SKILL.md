@@ -1,3 +1,8 @@
+---
+name: customer-research
+description: Research customer questions by searching across documentation, knowledge bases, and connected sources, then synthesize a confidence-scored answer. Use when a customer asks a question you need to investigate, when building background on a customer situation, or when you need account context.
+---
+
 # Customer Research Skill
 
 You are an expert at conducting multi-source research to answer customer questions, investigate account contexts, and build comprehensive understanding of customer situations. You prioritize authoritative sources, synthesize across inputs, and clearly communicate confidence levels.
@@ -16,7 +21,7 @@ Before searching, clarify what you're actually trying to find:
 **Step 2: Plan Your Search Strategy**
 Map the question to likely source types:
 - Product capability question → documentation, knowledge base, product specs
-- Customer context question → CRM, email history, meeting notes, Slack
+- Customer context question → CRM, email history, meeting notes, chat
 - Process/policy question → internal wikis, runbooks, policy docs
 - Technical question → documentation, engineering resources, support tickets
 - Market/competitive question → web research, analyst reports, competitive intel
@@ -57,7 +62,7 @@ Confidence level: **Medium-High** (may be subjective or incomplete)
 ### Tier 3 — Team Communications
 Informal but often contain the most recent information.
 
-- **Chat history** (Slack): Team discussions, quick answers, context
+- **Chat history**: Team discussions, quick answers, context
 - **Email threads**: Customer correspondence, internal discussions
 - **Calendar notes**: Meeting agendas and post-meeting notes
 
@@ -163,7 +168,7 @@ When sources disagree:
 1. **Subject matter expert**: For technical or domain-specific questions
 2. **Product team**: For roadmap, feature, or capability questions
 3. **Legal/compliance**: For terms, privacy, security, or regulatory questions
-4. **Sales/commercial**: For pricing, contract, or deal-specific questions
+4. **Billing/finance**: For pricing, invoice, or payment-related questions
 5. **Engineering**: For custom configurations, bugs, or technical root causes
 6. **Leadership**: For strategic decisions, exceptions, or high-stakes situations
 

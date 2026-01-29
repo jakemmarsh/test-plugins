@@ -1,6 +1,13 @@
+---
+description: Generate a weighted sales forecast with best/likely/worst scenarios, commit vs. upside breakdown, and gap analysis
+argument-hint: "<period>"
+---
+
 # /forecast
 
-Generate a weighted sales forecast from pipeline data with risk analysis.
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
+Generate a weighted sales forecast with risk analysis and commit recommendations.
 
 ## Usage
 
@@ -8,105 +15,197 @@ Generate a weighted sales forecast from pipeline data with risk analysis.
 /forecast
 ```
 
-Optional flags:
-- `/forecast this-quarter` — Current quarter forecast (default)
-- `/forecast next-quarter` — Next quarter projection
-- `/forecast this-year` — Full year view
+Then provide your pipeline data and targets.
 
-## Workflow
+---
 
-1. **Get pipeline data**:
-
-   **If CRM is connected**:
-   - Pull all open opportunities with close dates in the target period
-   - For each deal: name, account, amount, stage, close date, last activity, days in stage, next step, owner
-   - Also pull: closed-won deals in the period (for actuals), recently lost deals (for context)
-
-   **If CRM is NOT connected**:
-   > "Connect a CRM MCP server to generate forecasts automatically. Or describe your pipeline — list your deals with amount, stage, and expected close date — and I'll help you forecast."
-
-   Wait for user input, then parse into structured format.
-
-2. **Check for quota/target**:
-   - Look for configured quota in local settings
-   - If not configured, ask: "What is your target for [period]?"
-
-3. **Apply stage-based probability weighting**:
-
-   Use these default weights (or user-configured weights if available):
-
-   | Stage | Default Probability |
-   |---|---|
-   | Prospecting / Lead | 10% |
-   | Qualification / Discovery | 20% |
-   | Needs Analysis / Demo | 40% |
-   | Proposal / Pricing | 60% |
-   | Negotiation / Contract | 80% |
-   | Verbal Commit / Closed-Pending | 90% |
-   | Closed Won | 100% |
-
-   Let the user know these are defaults:
-   > "Using default stage probabilities. Adjust these in your local settings to match your actual conversion rates."
-
-4. **Generate forecast**:
-
-## Output Format
+## How It Works
 
 ```
-## Sales Forecast — [Period]
+┌─────────────────────────────────────────────────────────────────┐
+│                        FORECAST                                  │
+├─────────────────────────────────────────────────────────────────┤
+│  STANDALONE (always works)                                       │
+│  ✓ Upload CSV export from your CRM                              │
+│  ✓ Or paste/describe your pipeline deals                        │
+│  ✓ Set your quota and timeline                                  │
+│  ✓ Get weighted forecast with stage probabilities               │
+│  ✓ Risk-adjusted projections (best/likely/worst case)           │
+│  ✓ Commit vs. upside breakdown                                  │
+│  ✓ Gap analysis and recommendations                             │
+├─────────────────────────────────────────────────────────────────┤
+│  SUPERCHARGED (when you connect your tools)                      │
+│  + CRM: Pull pipeline automatically, real-time data             │
+│  + Historical win rates by stage, segment, deal size            │
+│  + Activity signals for risk scoring                            │
+│  + Automatic refresh and tracking over time                     │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-### Summary
+---
+
+## What I Need From You
+
+### Step 1: Your Pipeline Data
+
+**Option A: Upload a CSV**
+Export your pipeline from your CRM (e.g. Salesforce, HubSpot). I need at minimum:
+- Deal/Opportunity name
+- Amount
+- Stage
+- Close date
+
+Helpful if you have:
+- Owner (if team forecast)
+- Last activity date
+- Created date
+- Account name
+
+**Option B: Paste your deals**
+```
+Acme Corp - $50K - Negotiation - closes Jan 31
+TechStart - $25K - Demo scheduled - closes Feb 15
+BigCo - $100K - Discovery - closes Mar 30
+```
+
+**Option C: Describe your territory**
+"I have 8 deals in pipeline totaling $400K. Two are in negotiation ($120K), three in evaluation ($180K), three in discovery ($100K)."
+
+### Step 2: Your Targets
+
+- **Quota**: What's your number? (e.g., "$500K this quarter")
+- **Timeline**: When does the period end? (e.g., "Q1 ends March 31")
+- **Already closed**: How much have you already booked this period?
+
+---
+
+## Output
+
+```markdown
+# Sales Forecast: [Period]
+
+**Generated:** [Date]
+**Data Source:** [CSV upload / Manual input / CRM]
+
+---
+
+## Summary
+
 | Metric | Value |
-|---|---|
-| **Target** | $[quota] |
-| **Closed won (actuals)** | $[amount] |
-| **Committed (80%+ probability)** | $[amount] |
-| **Best case (40%+ probability)** | $[amount] |
-| **Weighted pipeline total** | $[amount] |
-| **Gap to target (from committed)** | $[amount] |
+|--------|-------|
+| **Quota** | $[X] |
+| **Closed to Date** | $[X] ([X]% of quota) |
+| **Open Pipeline** | $[X] |
+| **Weighted Forecast** | $[X] |
+| **Gap to Quota** | $[X] |
+| **Coverage Ratio** | [X]x |
 
-### Forecast by Category
-| Category | Deals | Unweighted | Weighted |
-|---|---|---|---|
-| **Closed Won** | [n] | $[amount] | $[amount] |
-| **Commit** (80%+) | [n] | $[amount] | $[amount] |
-| **Upside** (40-79%) | [n] | $[amount] | $[amount] |
-| **Pipeline** (<40%) | [n] | $[amount] | $[amount] |
-| **Total** | [n] | $[amount] | $[amount] |
+---
 
-### Commit Deals (High Confidence)
-| Deal | Account | Amount | Stage | Close Date | Risk |
-|---|---|---|---|---|---|
-| [name] | [account] | $[amount] | [stage] | [date] | [flag] |
+## Forecast Scenarios
 
-### Upside Deals (Moderate Confidence)
-| Deal | Account | Amount | Stage | Close Date | Risk |
-|---|---|---|---|---|---|
-| [name] | [account] | $[amount] | [stage] | [date] | [flag] |
+| Scenario | Amount | % of Quota | Assumptions |
+|----------|--------|------------|-------------|
+| **Best Case** | $[X] | [X]% | All deals close as expected |
+| **Likely Case** | $[X] | [X]% | Stage-weighted probabilities |
+| **Worst Case** | $[X] | [X]% | Only commit deals close |
 
-### Deals Needing Attention
-[List deals with risk flags — see below]
+---
+
+## Pipeline by Stage
+
+| Stage | # Deals | Total Value | Probability | Weighted Value |
+|-------|---------|-------------|-------------|----------------|
+| Negotiation | [X] | $[X] | 80% | $[X] |
+| Proposal | [X] | $[X] | 60% | $[X] |
+| Evaluation | [X] | $[X] | 40% | $[X] |
+| Discovery | [X] | $[X] | 20% | $[X] |
+| **Total** | [X] | $[X] | — | $[X] |
+
+---
+
+## Commit vs. Upside
+
+### Commit (High Confidence)
+Deals you'd stake your forecast on:
+
+| Deal | Amount | Stage | Close Date | Why Commit |
+|------|--------|-------|------------|------------|
+| [Deal] | $[X] | [Stage] | [Date] | [Reason] |
+
+**Total Commit:** $[X]
+
+### Upside (Lower Confidence)
+Deals that could close but have risk:
+
+| Deal | Amount | Stage | Close Date | Risk Factor |
+|------|--------|-------|------------|-------------|
+| [Deal] | $[X] | [Stage] | [Date] | [Risk] |
+
+**Total Upside:** $[X]
+
+---
+
+## Risk Flags
+
+| Deal | Amount | Risk | Recommendation |
+|------|--------|------|----------------|
+| [Deal] | $[X] | Close date passed | Update close date or move to lost |
+| [Deal] | $[X] | No activity in 14+ days | Re-engage or downgrade stage |
+| [Deal] | $[X] | Close date this week, still in discovery | Unlikely to close — push out |
+
+---
+
+## Gap Analysis
+
+**To hit quota, you need:** $[X] more
+
+**Options to close the gap:**
+1. **Accelerate [Deal]** — Currently [stage], worth $[X]. If you can close by [date], you're at [X]% of quota.
+2. **Revive [Stalled Deal]** — Last active [date]. Worth $[X]. Reach out to [contact].
+3. **New pipeline needed** — You need $[X] in new opportunities at [X]x coverage to be safe.
+
+---
+
+## Recommendations
+
+1. [ ] [Specific action for highest-impact deal]
+2. [ ] [Action for at-risk deal]
+3. [ ] [Pipeline generation recommendation if gap exists]
 ```
 
-5. **Risk analysis**: Flag deals with issues:
-   - **Overdue**: Close date is in the past
-   - **Stale**: No activity in 14+ days
-   - **No next step**: Missing defined next action
-   - **Pushed**: Close date moved out 2+ times
-   - **Stuck**: In current stage longer than average for that stage
-   - **Single-threaded**: Only one contact engaged (if data available)
+---
 
-   For each flagged deal, suggest a specific action.
+## Stage Probabilities (Default)
 
-6. **Forecast commentary**:
-   - Are you on track to hit target? By how much over/under?
-   - What percentage of target is covered by commit deals?
-   - How much upside needs to convert to close the gap?
-   - What pipeline generation is needed if upside falls short?
-   - Historical context if available: what % of upside typically converts?
+If you don't provide custom probabilities, I'll use:
 
-7. **Offer next steps**:
-   - "Would you like me to drill into any specific deals?"
-   - "Would you like me to run call-prep for your commit deals?"
-   - "Would you like me to draft re-engagement outreach for stale deals?"
-   - "Would you like me to review pipeline generation sources?"
+| Stage | Default Probability |
+|-------|---------------------|
+| Closed Won | 100% |
+| Negotiation / Contract | 80% |
+| Proposal / Quote | 60% |
+| Evaluation / Demo | 40% |
+| Discovery / Qualification | 20% |
+| Prospecting / Lead | 10% |
+
+Tell me if your stages or probabilities are different.
+
+---
+
+## If CRM Connected
+
+- I'll pull your pipeline automatically
+- Use your actual historical win rates
+- Factor in activity recency for risk scoring
+- Track forecast changes over time
+- Compare to previous forecasts
+
+---
+
+## Tips
+
+1. **Be honest about commit** — Only commit deals you'd bet on. Upside is for everything else.
+2. **Update close dates** — Stale close dates kill forecast accuracy. Push out deals that won't close in time.
+3. **Coverage matters** — 3x pipeline coverage is healthy. Below 2x is risky.
+4. **Activity = signal** — Deals with no recent activity are at higher risk than stage suggests.

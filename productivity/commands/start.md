@@ -1,9 +1,10 @@
 ---
 description: Initialize the productivity system and open the dashboard
-allowed-tools: ["Bash", "Read", "Write", "Edit"]
 ---
 
 # Start Command
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
 
 Initialize the task and memory systems, then open the unified dashboard.
 
@@ -19,18 +20,15 @@ Check the working directory for:
 
 ### 2. Create What's Missing
 
-**If `TASKS.md` doesn't exist:** Create it with the standard template (see task-management skill).
+**If `TASKS.md` doesn't exist:** Create it with the standard template (see task-management skill). Place it in the current working directory.
 
-**If `dashboard.html` doesn't exist:** Copy it from `${CLAUDE_PLUGIN_ROOT}/skills/dashboard.html`.
+**If `dashboard.html` doesn't exist:** Copy it from `${CLAUDE_PLUGIN_ROOT}/skills/dashboard.html` to the current working directory.
 
-**If `CLAUDE.md` and `memory/` don't exist:** This is a fresh setup — after opening the dashboard, begin the memory bootstrap workflow (see below).
+**If `CLAUDE.md` and `memory/` don't exist:** This is a fresh setup — after opening the dashboard, begin the memory bootstrap workflow (see below). Place these in the current working directory.
 
 ### 3. Open the Dashboard
 
-```bash
-open dashboard.html  # macOS
-xdg-open dashboard.html  # Linux
-```
+Do NOT use `open` or `xdg-open` — in Cowork, the agent runs in a VM and shell open commands won't reach the user's browser. Instead, tell the user: "Dashboard is ready at `dashboard.html`. Open it from your file browser to get started."
 
 ### 4. Orient the User
 
@@ -53,7 +51,7 @@ The best source of workplace language is the user's actual task list. Real tasks
 ```
 Where do you keep your todos or task list? This could be:
 - A local file (e.g., TASKS.md, todo.txt)
-- An app (Asana, Linear, Notion, Things)
+- An app (e.g. Asana, Linear, Jira, Notion, Todoist)
 - A notes file
 
 I'll use your tasks to learn your workplace shorthand.

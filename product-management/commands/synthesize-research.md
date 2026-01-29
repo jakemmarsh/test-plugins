@@ -1,10 +1,13 @@
+---
+description: Synthesize user research from interviews, surveys, and feedback into structured insights
+argument-hint: "<research topic or question>"
+---
+
 # Synthesize Research
 
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
 Synthesize user research from multiple sources into structured insights and recommendations.
-
-## Trigger
-
-The user wants to synthesize user research, analyze interview notes, make sense of survey results, identify patterns in user feedback, or combine research from multiple sources.
 
 ## Workflow
 
@@ -13,9 +16,10 @@ The user wants to synthesize user research, analyze interview notes, make sense 
 Accept research from any combination of:
 - **Pasted text**: Interview notes, transcripts, survey responses, feedback
 - **Uploaded files**: Research documents, spreadsheets, recordings summaries
-- **Connected docs** (Google Drive, Notion): Search for research documents, interview notes, survey results
-- **Connected support tools**: Pull recent support tickets, feature requests, bug reports
-- **Connected analytics**: Pull usage data, funnel metrics, behavioral data
+- **~~knowledge base** (if connected): Search for research documents, interview notes, survey results
+- **~~user feedback** (if connected): Pull recent support tickets, feature requests, bug reports
+- **~~product analytics** (if connected): Pull usage data, funnel metrics, behavioral data
+- **~~meeting transcription** (if connected): Pull interview recordings, meeting summaries, and discussion notes
 
 Ask the user what they have:
 - What type of research? (interviews, surveys, usability tests, analytics, support tickets, sales call notes)
@@ -35,12 +39,9 @@ For each source, extract:
 
 ### 3. Identify Themes and Patterns
 
-Apply thematic analysis:
-- Group observations into themes based on similarity
-- Count frequency: how many participants/sources mentioned each theme
-- Assess impact: how severe is each issue for users who experience it
-- Note contradictions: where do different users disagree or have different needs
-- Identify surprises: what was unexpected or challenges assumptions
+Apply thematic analysis — see the **user-research-synthesis** skill for detailed methodology including affinity mapping and triangulation techniques.
+
+Group observations into themes, count frequency across participants, and assess impact severity. Note contradictions and surprises.
 
 Create a priority matrix:
 - **High frequency + High impact**: Top priority findings

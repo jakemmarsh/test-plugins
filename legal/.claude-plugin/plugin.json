@@ -1,7 +1,7 @@
 {
   "name": "legal",
   "version": "1.0.0",
-  "description": "In-house legal productivity - contract review, NDA triage, compliance workflows, legal briefs, and knowledge management",
+  "description": "Speed up contract review, NDA triage, and compliance workflows for in-house legal teams. Draft legal briefs, organize precedent research, and manage institutional knowledge.",
   "author": {
     "name": "Jake Marsh"
   }

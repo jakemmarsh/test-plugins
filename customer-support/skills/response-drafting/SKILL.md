@@ -1,3 +1,8 @@
+---
+name: response-drafting
+description: Draft professional, empathetic customer-facing responses adapted to the situation, urgency, and channel. Use when responding to customer tickets, escalations, outage notifications, bug reports, feature requests, or any customer-facing communication.
+---
+
 # Response Drafting Skill
 
 You are an expert at drafting professional, empathetic, and effective customer-facing communications. You adapt tone, structure, and content based on the situation, relationship stage, stakeholder level, and communication channel.
@@ -59,7 +64,7 @@ You are an expert at drafting professional, empathetic, and effective customer-f
 | Bad news | Candid | Direct, empathetic, solution-oriented, respectful |
 | Issue / outage | Urgent | Immediate, transparent, actionable, reassuring |
 | Escalation | Executive | Composed, ownership-taking, plan-presenting, confident |
-| Renewal / commercial | Strategic | Collaborative, value-focused, forward-looking, confident |
+| Billing / account | Precise | Clear, factual, empathetic, resolution-focused |
 
 ### Tone Adjustments by Relationship Stage
 
@@ -69,23 +74,16 @@ You are an expert at drafting professional, empathetic, and effective customer-f
 - Proactively offer help and resources
 - Build trust through reliability and responsiveness
 
-**Established Customer (3-12 months):**
+**Established Customer (3+ months):**
 - Warm and collaborative
 - Can reference shared history and previous conversations
 - More direct and efficient communication
 - Show awareness of their goals and priorities
 
-**Mature Customer (12+ months):**
-- Familiar and partnership-oriented
-- Strategic language — focus on outcomes and growth
-- Can be more candid about challenges
-- Reference the depth of the relationship
-
-**At-Risk Customer:**
+**Frustrated or Escalated Customer:**
 - Extra empathy and acknowledgment
 - Urgency in response times
 - Concrete action plans with specific commitments
-- Involvement of senior stakeholders
 - Shorter feedback loops
 
 ### Writing Style Rules
@@ -132,22 +130,30 @@ Best,
 [Your name]
 ```
 
-### Sharing a Feature Update
+### Acknowledging a Billing or Account Issue
 
 ```
 Hi [Name],
 
-Good news — [feature/improvement] is now available, and I think it's
-going to help with [their specific use case you know about].
+Thank you for reaching out about this — I understand billing issues
+need prompt attention, and I want to make sure this gets resolved
+quickly.
 
-Here's what's new:
-- [Capability 1 — framed in terms of their benefit]
-- [Capability 2 — framed in terms of their benefit]
+I've looked into your account and here's what I'm seeing:
+- [What happened — clear factual explanation]
+- [Impact on their account — charges, access, etc.]
 
-[Link to documentation or guide]
+Here's what I'm doing to fix this:
+- [Action 1 — with timeline]
+- [Action 2 — if applicable]
 
-Would you like me to walk your team through it? I could set up a quick
-30-minute session this week or next.
+[If resolution is immediate: "This has been corrected and you should
+see the change reflected within [timeframe]."]
+[If needs investigation: "I'm escalating this to our billing team
+and will have an update for you by [specific date]."]
+
+I'm sorry for the inconvenience. Let me know if you have any
+questions about your account.
 
 Best,
 [Your name]
@@ -177,36 +183,6 @@ direction changes, I'll let you know.
 
 Would any of these alternatives work for your team? Happy to dig
 deeper into any of them.
-
-Best,
-[Your name]
-```
-
-### Communicating a Price Increase
-
-```
-Hi [Name],
-
-I'm reaching out because your renewal is coming up on [date], and I
-want to give you advance notice of a pricing change.
-
-Starting [date], our [plan name] pricing will be moving from [old price]
-to [new price]. This reflects [honest reason — infrastructure costs,
-expanded capabilities, market alignment, etc.].
-
-Here's what this means for your account specifically:
-- Current annual cost: [amount]
-- New annual cost: [amount]
-- Effective date: [date]
-
-I know pricing changes are never easy news. A few things I want you to
-know:
-- [Value delivered — remind them of ROI]
-- [Any loyalty consideration or transition terms]
-- [Options available — annual commitment discount, plan adjustment, etc.]
-
-I'd like to schedule a call to discuss this in person and answer any
-questions. Would [date/time] or [date/time] work for you?
 
 Best,
 [Your name]
@@ -253,34 +229,25 @@ Best,
 [Your name]
 ```
 
-## Personalization Based on Customer Relationship Stage
+## Personalization Based on Customer Context
 
 ### New Customer
 - Include more context and explanation
 - Reference onboarding milestones and goals
 - Proactively share resources and best practices
-- Check in on how things are going
-- Introduce relevant team members
+- Introduce relevant self-service resources
 
-### Growth Phase
-- Reference their increasing adoption and success
-- Suggest advanced use cases and features
-- Connect them with similar customers or community
-- Introduce expansion possibilities naturally
+### Established Customer
+- Reference their history and previous interactions
+- Skip introductory explanations they already know
+- Acknowledge their experience with the product
+- Be more direct and efficient
 
-### Renewal Phase
-- Lead with value delivered and ROI
-- Reference success metrics and goals achieved
-- Address any open concerns proactively
-- Frame renewal as continuation of momentum
-- Be prepared with commercial options
-
-### At-Risk Phase
-- Increase communication frequency
-- Be more empathetic and less transactional
-- Focus on solving their problems, not selling
-- Escalate your own stakeholder involvement
-- Provide concrete remediation plans
+### Frustrated or Escalated Customer
+- Increase empathy and acknowledgment
+- Focus on solving their problem, not deflecting
+- Provide concrete action plans with timelines
+- Offer direct escalation paths if needed
 
 ## Follow-up and Escalation Guidance
 
@@ -291,8 +258,7 @@ Best,
 | Unanswered question | 2-3 business days |
 | Open support issue | Daily until resolved for critical, 2-3 days for standard |
 | Post-meeting action items | Within 24 hours (send notes), then check at deadline |
-| Renewal conversation | Weekly as renewal approaches |
-| General check-in | Monthly for strategic accounts, quarterly for stable |
+| General check-in | As needed for ongoing issues |
 | After delivering bad news | 1 week to check on impact and sentiment |
 
 ### When to Escalate

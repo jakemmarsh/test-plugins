@@ -1,4 +1,11 @@
+---
+name: audit-support
+description: Support SOX 404 compliance with control testing methodology, sample selection, and documentation standards. Use when generating testing workpapers, selecting audit samples, classifying control deficiencies, or preparing for internal or external audits.
+---
+
 # Audit Support
+
+**Important**: This skill assists with SOX compliance workflows but does not provide audit or legal advice. All testing workpapers and assessments should be reviewed by qualified financial professionals.
 
 SOX 404 control testing methodology, sample selection approaches, testing documentation standards, control deficiency classification, and common control types.
 

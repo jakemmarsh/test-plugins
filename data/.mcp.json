@@ -10,11 +10,11 @@
     },
     "bigquery": {
       "type": "http",
-      "url": ""
+      "url": "https://bigquery.googleapis.com/mcp"
     },
     "hex": {
       "type": "http",
-      "url": ""
+      "url": "https://app.hex.tech/mcp"
     },
     "amplitude": {
       "type": "http",

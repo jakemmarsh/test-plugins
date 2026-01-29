@@ -31,6 +31,10 @@
     "fireflies": {
       "type": "http",
       "url": "https://api.fireflies.ai/mcp"
+    },
+    "ms365": {
+      "type": "http",
+      "url": "https://microsoft365.mcp.claude.com/mcp"
     }
   }
 }

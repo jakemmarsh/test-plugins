@@ -1,13 +1,11 @@
 ---
 name: search-strategy
-description: >
-  Query decomposition and multi-source search orchestration. Breaks natural
-  language questions into targeted searches per source, translates queries
-  into source-specific syntax, ranks results by relevance, and handles
-  ambiguity and fallback strategies.
+description: Query decomposition and multi-source search orchestration. Breaks natural language questions into targeted searches per source, translates queries into source-specific syntax, ranks results by relevance, and handles ambiguity and fallback strategies.
 ---
 
 # Search Strategy
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../../CONNECTORS.md).
 
 The core intelligence behind enterprise search. Transforms a single natural language question into parallel, source-specific searches and produces ranked, deduplicated results.
 
@@ -20,11 +18,9 @@ Turn this:
 
 Into targeted searches across every connected source:
 ```
-Slack:  "API migration timeline decision" (semantic) + "API migration" in:#engineering after:2025-01-01
-Gmail:  subject:(API migration) OR body:(API migration timeline)
-GDrive: fullText contains 'API migration' and modifiedTime > '2025-01-01'
-Outline: semantic search "API migration timeline decision"
-Asana:  text search "API migration" in relevant workspace
+~~chat:  "API migration timeline decision" (semantic) + "API migration" in:#engineering after:2025-01-01
+~~knowledge base: semantic search "API migration timeline decision"
+~~project tracker:  text search "API migration" in relevant workspace
 ```
 
 Then synthesize the results into a single coherent answer.
@@ -37,7 +33,7 @@ Classify the user's question to determine search strategy:
 
 | Query Type | Example | Strategy |
 |-----------|---------|----------|
-| **Decision** | "What did we decide about X?" | Prioritize conversations (Slack, email), look for conclusion signals |
+| **Decision** | "What did we decide about X?" | Prioritize conversations (~~chat, email), look for conclusion signals |
 | **Status** | "What's the status of Project Y?" | Prioritize recent activity, task trackers, status updates |
 | **Document** | "Where's the spec for Z?" | Prioritize Drive, wiki, shared docs |
 | **Person** | "Who's working on X?" | Search task assignments, message authors, doc collaborators |
@@ -77,7 +73,7 @@ Queries: "Kubernetes", "k8s", "cluster", "container orchestration"
 
 ## Source-Specific Query Translation
 
-### Slack
+### ~~chat
 
 **Semantic search** (natural language questions):
 ```
@@ -92,7 +88,7 @@ query: "from:<@UserID> aurora"
 ```
 
 **Filter mapping:**
-| Enterprise filter | Slack syntax |
+| Enterprise filter | ~~chat syntax |
 |------------------|--------------|
 | `from:sarah` | `from:sarah` or `from:<@USERID>` |
 | `in:engineering` | `in:engineering` |
@@ -101,43 +97,7 @@ query: "from:<@UserID> aurora"
 | `type:thread` | `is:thread` |
 | `type:file` | `has:file` |
 
-### Gmail
-
-**Query syntax:**
-```
-query: "subject:(API migration) after:2025/1/1"
-query: "from:sarah@company.com API migration"
-query: "{API migration timeline} has:attachment"
-```
-
-**Filter mapping:**
-| Enterprise filter | Gmail syntax |
-|------------------|--------------|
-| `from:sarah` | `from:sarah` or `from:sarah@domain.com` |
-| `after:2025-01-01` | `after:2025/1/1` |
-| `before:2025-02-01` | `before:2025/2/1` |
-| `type:attachment` | `has:attachment` |
-| `in:sent` | `in:sent` |
-
-### Google Drive
-
-**Query syntax:**
-```
-q: "fullText contains 'API migration' and modifiedTime > '2025-01-01T00:00:00'"
-q: "name contains 'API spec' and mimeType = 'application/vnd.google-apps.document'"
-```
-
-**Filter mapping:**
-| Enterprise filter | GDrive query syntax |
-|------------------|-------------------|
-| `after:2025-01-01` | `modifiedTime > '2025-01-01T00:00:00'` |
-| `before:2025-02-01` | `modifiedTime < '2025-02-01T00:00:00'` |
-| `from:sarah` | Search results, then filter by owner |
-| `type:doc` | `mimeType = 'application/vnd.google-apps.document'` |
-| `type:spreadsheet` | `mimeType = 'application/vnd.google-apps.spreadsheet'` |
-| `type:pdf` | `mimeType = 'application/pdf'` |
-
-### Outline (Wiki)
+### ~~knowledge base (Wiki)
 
 **Semantic search** — Use for conceptual queries:
 ```
@@ -150,7 +110,7 @@ query: "API migration"
 query: "\"API migration timeline\""  (exact phrase)
 ```
 
-### Asana
+### ~~project tracker
 
 **Task search:**
 ```
@@ -161,19 +121,11 @@ assignee_any: "me"  (for "my tasks" queries)
 ```
 
 **Filter mapping:**
-| Enterprise filter | Asana parameter |
+| Enterprise filter | ~~project tracker parameter |
 |------------------|----------------|
 | `from:sarah` | `assignee_any` or `created_by_any` |
 | `after:2025-01-01` | `modified_on_after: "2025-01-01"` |
 | `type:milestone` | `resource_subtype: "milestone"` |
-
-### Salesforce
-
-**SOQL queries:**
-```
-SELECT Id, Name, StageName FROM Opportunity WHERE Name LIKE '%Aurora%'
-SELECT Id, Subject, Description FROM Case WHERE Subject LIKE '%API%'
-```
 
 ## Result Ranking
 
@@ -216,7 +168,7 @@ Ambiguous: "search for the migration"
 → "I found references to a few migrations. Are you looking for:
    1. The database migration (Project Phoenix)
    2. The cloud migration (AWS → GCP)
-   3. The email migration (Exchange → Gmail)"
+   3. The email migration (Exchange → O365)"
 ```
 
 Only ask for clarification when:
@@ -259,7 +211,7 @@ Always execute searches across sources in parallel, never sequentially. The tota
 ```
 [User query]
      ↓ decompose
-[Slack query] [Gmail query] [GDrive query] [Wiki query] [Asana query]
+[~~chat query] [~~email query] [~~cloud storage query] [Wiki query] [~~project tracker query]
      ↓            ↓            ↓              ↓            ↓
   (parallel execution)
      ↓

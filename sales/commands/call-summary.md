@@ -1,6 +1,13 @@
+---
+description: Process call notes or a transcript — extract action items, draft follow-up email, generate internal summary
+argument-hint: "<call notes or transcript>"
+---
+
 # /call-summary
 
-Process call notes or a transcript to extract key information, generate follow-up, and update records.
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
+Process call notes or a transcript to extract action items, draft follow-up communications, and update records.
 
 ## Usage
 
@@ -8,95 +15,151 @@ Process call notes or a transcript to extract key information, generate follow-u
 /call-summary
 ```
 
-Then paste your call notes, transcript, or provide a file path.
+Then paste your notes, transcript, or upload a recording.
 
-If a conversation intelligence MCP is connected, you can also:
+---
+
+## How It Works
+
 ```
-/call-summary <call URL or identifier>
+┌─────────────────────────────────────────────────────────────────┐
+│                      CALL SUMMARY                                │
+├─────────────────────────────────────────────────────────────────┤
+│  STANDALONE (always works)                                       │
+│  ✓ Paste call notes or transcript                               │
+│  ✓ Extract key discussion points and decisions                  │
+│  ✓ Identify action items with owners and due dates              │
+│  ✓ Surface objections, concerns, and open questions             │
+│  ✓ Draft customer-facing follow-up email                        │
+│  ✓ Generate internal summary for your team                      │
+├─────────────────────────────────────────────────────────────────┤
+│  SUPERCHARGED (when you connect your tools)                      │
+│  + Transcripts: Pull recording automatically (e.g. Gong, Fireflies) │
+│  + CRM: Update opportunity, log activity, create tasks          │
+│  + Email: Send follow-up directly from draft                    │
+│  + Calendar: Link to meeting, pull attendee context             │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-## Workflow
+---
 
-1. **Get call content**:
+## What I Need From You
 
-   **If conversation intelligence MCP is connected**:
-   - If a call URL or identifier is provided, pull the transcript and metadata automatically
-   - Pull: attendees, duration, talk-to-listen ratio, key topics, action items (if the tool extracts them)
+**Option 1: Paste your notes**
+Just paste whatever you have — bullet points, rough notes, stream of consciousness. I'll structure it.
 
-   **If not connected**:
-   - Ask the user to paste their call notes or transcript
-   - Accept raw notes, structured notes, or full transcripts
-   > "Paste your call notes or transcript below. For richer analysis, connect a conversation intelligence MCP server to pull call data automatically."
+**Option 2: Paste a transcript**
+If you have a full transcript from your video conferencing tool (e.g. Zoom, Teams) or conversation intelligence tool (e.g. Gong, Fireflies), paste it. I'll extract the key moments.
 
-2. **Extract key information**:
+**Option 3: Describe the call**
+Tell me what happened: "Had a discovery call with Acme Corp. Met with their VP Eng and CTO. They're evaluating us vs Competitor X. Main concern is integration timeline."
 
-### Discussion Points
-- Identify the main topics discussed with brief summaries
-- Note any decisions made during the call
+---
 
-### Commitments & Action Items
-- **Our commitments**: Things we promised to do, with owners if mentioned
-- **Their commitments**: Things the prospect/customer agreed to do
-- Flag any commitments without clear timelines
-
-### Objections & Concerns
-- Objections raised during the call
-- How they were addressed (or not)
-- Unresolved concerns that need follow-up
-
-### Discovery Insights
-- New information learned about their needs, priorities, or situation
-- Budget signals
-- Timeline signals
-- Decision process insights
-- Competitive mentions
-
-### Deal Impact
-- How this call affects the deal stage and probability
-- Any changes to expected close date or deal size
-- Risk flags (new competitor, budget concerns, champion leaving, etc.)
-
-3. **Generate outputs**:
+## Output
 
 ### Internal Summary
-```
+```markdown
 ## Call Summary: [Company] — [Date]
-**Attendees**: [list]
-**Duration**: [if known]
-**Call Type**: [discovery / demo / negotiation / check-in / etc.]
 
-### Key Takeaways
-1. [Most important insight or outcome]
-2. [Second key point]
-3. [Third key point]
+**Attendees:** [Names and titles]
+**Call Type:** [Discovery / Demo / Negotiation / Check-in]
+**Duration:** [If known]
+
+### Key Discussion Points
+1. [Topic] — [What was discussed, decisions made]
+2. [Topic] — [Summary]
+
+### Customer Priorities
+- [Priority 1 they expressed]
+- [Priority 2]
+
+### Objections / Concerns Raised
+- [Concern] — [How you addressed it / status]
+
+### Competitive Intel
+- [Any competitor mentions, what was said]
 
 ### Action Items
-| Action | Owner | Due Date |
-|---|---|---|
-| [action] | [person] | [date] |
+| Owner | Action | Due |
+|-------|--------|-----|
+| [You] | [Task] | [Date] |
+| [Customer] | [Task] | [Date] |
 
-### Deal Update
-- **Stage**: [current → recommended]
-- **Next step**: [specific next action]
-- **Risk level**: [low/medium/high — why]
+### Next Steps
+- [Agreed next step with timeline]
+
+### Deal Impact
+- [How this call affects the opportunity — stage change, risk, acceleration]
 ```
 
-### Customer-Facing Follow-Up Email
-Draft a follow-up email that:
-- Thanks them for their time
-- Summarizes key discussion points (from the customer's perspective, not internal notes)
-- Confirms action items and next steps with dates
-- Attaches or references any materials discussed
-- Proposes next meeting if appropriate
+### Customer Follow-Up Email
+```
+Subject: [Meeting recap + next steps]
 
-4. **CRM updates** (if CRM connected):
-   - Suggest specific field updates: stage, next step, close date, amount
-   - Offer to log the call activity with summary
-   - Offer to create follow-up tasks for action items
-   > "Would you like me to update the opportunity in your CRM with these details?"
+Hi [Name],
 
-5. **Offer next steps**:
-   - "Would you like me to send this follow-up email?" (if email MCP connected)
-   - "Would you like me to create calendar invites for the next steps?"
-   - "Would you like me to research any open questions from the call?"
-   - "Would you like me to adjust the follow-up email?"
+Thank you for taking the time to meet today...
+
+[Key points discussed]
+
+[Commitments you made]
+
+[Clear next step with timeline]
+
+Best,
+[You]
+```
+
+---
+
+## Email Style Guidelines
+
+When drafting customer-facing emails:
+
+1. **Be concise but informative** — Get to the point quickly. Customers are busy.
+2. **No markdown formatting** — Don't use asterisks, bold, or other markdown syntax. Write in plain text that looks natural in any email client.
+3. **Use simple structure** — Short paragraphs, line breaks between sections. No headers or bullet formatting unless the customer's email client will render it.
+4. **Keep it scannable** — If listing items, use plain dashes or numbers, not fancy formatting.
+
+**Good:**
+```
+Here's what we discussed:
+- Quote for 20 seats at $480/seat/year
+- W9 and supplier onboarding docs
+- Point of contact for the contract
+```
+
+**Bad:**
+```
+**What You Need from Us:**
+- Quote for 20 seats at $480/seat/year
+```
+
+---
+
+## If Connectors Available
+
+**Transcripts connected (e.g. Gong, Fireflies):**
+- I'll search for the call automatically
+- Pull the full transcript
+- Extract key moments flagged by the platform
+
+**CRM connected:**
+- I'll offer to update the opportunity stage
+- Log the call as an activity
+- Create tasks for action items
+- Update next steps field
+
+**Email connected:**
+- I'll offer to create a draft in your email (e.g. Gmail)
+- Or send directly if you approve
+
+---
+
+## Tips
+
+1. **More detail = better output** — Even rough notes help. "They seemed concerned about X" is useful context.
+2. **Name the attendees** — Helps me structure the summary and assign action items.
+3. **Flag what matters** — If something was important, tell me: "The big thing was..."
+4. **Tell me the deal stage** — Helps me tailor the follow-up tone and next steps.

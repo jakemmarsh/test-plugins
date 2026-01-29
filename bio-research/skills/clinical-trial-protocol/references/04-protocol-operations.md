@@ -1394,7 +1394,7 @@ Define each analysis population clearly:
 **Data Collection and Management:**
 
 **Electronic Data Capture (EDC):**
-- eCRF system: [Specify system name, e.g., "Medidata Rave", "REDCap", or state "TBD"]
+- eCRF system: [Specify system name, e.g., "REDCap", or state "TBD"]
 - Web-based access: Sites access eCRF via secure web browser
 - User access: Role-based access control; unique usernames and passwords
 - Training: Sites trained on eCRF before use

@@ -1,12 +1,11 @@
 ---
 name: source-management
-description: >
-  Manages connected MCP sources for enterprise search. Detects available
-  sources, guides users to connect new ones, handles source priority
-  ordering, and manages rate limiting awareness.
+description: Manages connected MCP sources for enterprise search. Detects available sources, guides users to connect new ones, handles source priority ordering, and manages rate limiting awareness.
 ---
 
 # Source Management
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../../CONNECTORS.md).
 
 Knows what sources are available, helps connect new ones, and manages how sources are queried.
 
@@ -14,14 +13,14 @@ Knows what sources are available, helps connect new ones, and manages how source
 
 Determine which MCP sources are connected by checking available tools. Each source corresponds to a set of MCP tools:
 
-| Source | Tool prefix | Key tools |
-|--------|------------|-----------|
-| **Slack** | `mcp__claude_ai_Slack__` | `slack_search_public`, `slack_read_channel` |
-| **Gmail** | `mcp__claude_ai_Gmail__` | `gmail_search_messages`, `gmail_read_message` |
-| **Google Drive** | `mcp__claude_ai_Google_Drive_2__` | `gdrive_query_search`, `gdrive_fetch` |
-| **Asana** | `mcp__claude_ai_Asana__` | `asana_search_tasks`, `asana_typeahead_search` |
-| **Salesforce** | `mcp__claude_ai_Salesforce__` | `salesforce_query` |
-| **Outline** | `mcp__claude_ai_Outline__` | `semantic_search_outline_documents` |
+| Source | Key capabilities |
+|--------|-----------------|
+| **~~chat** | Search messages, read channels and threads |
+| **~~email** | Search messages, read individual emails |
+| **~~cloud storage** | Search files, fetch document contents |
+| **~~project tracker** | Search tasks, typeahead search |
+| **~~CRM** | Query records (accounts, contacts, opportunities) |
+| **~~knowledge base** | Semantic search, keyword search |
 
 If a tool prefix is available, the source is connected and searchable.
 
@@ -33,12 +32,12 @@ When a user searches but has few or no sources connected:
 You currently have [N] source(s) connected: [list].
 
 To expand your search, you can connect additional sources in your MCP settings:
-- Slack — messages, threads, channels
-- Gmail — emails, conversations, attachments
-- Google Drive — docs, sheets, slides
-- Asana — tasks, projects, milestones
-- Salesforce — accounts, contacts, opportunities
-- Outline — wiki pages, knowledge base articles
+- ~~chat — messages, threads, channels
+- ~~email — emails, conversations, attachments
+- ~~cloud storage — docs, sheets, slides
+- ~~project tracker — tasks, projects, milestones
+- ~~CRM — accounts, contacts, opportunities
+- ~~knowledge base — wiki pages, knowledge base articles
 
 The more sources you connect, the more complete your search results.
 ```
@@ -62,56 +61,56 @@ Different query types benefit from searching certain sources first. Use these pr
 
 **Decision queries** ("What did we decide..."):
 ```
-1. Slack (conversations where decisions happen)
-2. Gmail (decision confirmations, announcements)
-3. Google Drive (meeting notes, decision logs)
+1. ~~chat (conversations where decisions happen)
+2. ~~email (decision confirmations, announcements)
+3. ~~cloud storage (meeting notes, decision logs)
 4. Wiki (if decisions are documented)
 5. Task tracker (if decisions are captured in tasks)
 ```
 
 **Status queries** ("What's the status of..."):
 ```
-1. Task tracker (Asana — authoritative status)
-2. Slack (real-time discussion)
-3. Google Drive (status docs, reports)
-4. Gmail (status update emails)
+1. Task tracker (~~project tracker — authoritative status)
+2. ~~chat (real-time discussion)
+3. ~~cloud storage (status docs, reports)
+4. ~~email (status update emails)
 5. Wiki (project pages)
 ```
 
 **Document queries** ("Where's the doc for..."):
 ```
-1. Google Drive (primary doc storage)
-2. Wiki / Outline (knowledge base)
-3. Gmail (docs shared via email)
-4. Slack (docs shared in channels)
+1. ~~cloud storage (primary doc storage)
+2. Wiki / ~~knowledge base (knowledge base)
+3. ~~email (docs shared via email)
+4. ~~chat (docs shared in channels)
 5. Task tracker (docs linked to tasks)
 ```
 
 **People queries** ("Who works on..." / "Who knows about..."):
 ```
-1. Slack (message authors, channel members)
+1. ~~chat (message authors, channel members)
 2. Task tracker (task assignees)
-3. Google Drive (doc authors, collaborators)
-4. Salesforce (account owners, contacts)
-5. Gmail (email participants)
+3. ~~cloud storage (doc authors, collaborators)
+4. ~~CRM (account owners, contacts)
+5. ~~email (email participants)
 ```
 
 **Factual/Policy queries** ("What's our policy on..."):
 ```
-1. Wiki / Outline (official documentation)
-2. Google Drive (policy docs, handbooks)
-3. Gmail (policy announcements)
-4. Slack (policy discussions)
+1. Wiki / ~~knowledge base (official documentation)
+2. ~~cloud storage (policy docs, handbooks)
+3. ~~email (policy announcements)
+4. ~~chat (policy discussions)
 ```
 
 ### Default Priority (General Queries)
 
 When query type is unclear:
 ```
-1. Slack (highest volume, most real-time)
-2. Gmail (formal communications)
-3. Google Drive (documents and files)
-4. Wiki / Outline (structured knowledge)
+1. ~~chat (highest volume, most real-time)
+2. ~~email (formal communications)
+3. ~~cloud storage (documents and files)
+4. Wiki / ~~knowledge base (structured knowledge)
 5. Task tracker (work items)
 6. CRM (customer data)
 ```
@@ -153,12 +152,12 @@ Track source availability during a session:
 
 ```
 Source Status:
-  Slack:        ✓ Available
-  Gmail:        ✓ Available
-  Google Drive:  ✓ Available
-  Asana:        ✗ Not connected
-  Salesforce:   ✗ Not connected
-  Outline:      ⚠ Rate limited (retry in 2 min)
+  ~~chat:        ✓ Available
+  ~~email:        ✓ Available
+  ~~cloud storage:  ✓ Available
+  ~~project tracker:        ✗ Not connected
+  ~~CRM:   ✗ Not connected
+  ~~knowledge base:      ⚠ Rate limited (retry in 2 min)
 ```
 
 When reporting search results, include which sources were searched so the user knows the scope of the answer.

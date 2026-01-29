@@ -1,10 +1,13 @@
+---
+description: Create a competitive analysis brief for one or more competitors or a feature area
+argument-hint: "<competitor or feature area>"
+---
+
 # Competitive Brief
 
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
 Create a competitive analysis brief for one or more competitors or a feature area.
-
-## Trigger
-
-The user wants to do competitive analysis, compare against competitors, understand the competitive landscape, analyze a competitor's product, or prepare for a competitive deal.
 
 ## Workflow
 
@@ -26,12 +29,12 @@ Ask the user:
 - Job postings (signal of strategic direction)
 - Social media and community discussions
 
-**If docs are connected** (Google Drive, Notion):
+If **~~knowledge base** is connected:
 - Search for existing competitive analysis documents
 - Find win/loss reports or sales battle cards
 - Pull prior competitive research
 
-**If chat is connected** (Slack):
+If **~~chat** is connected:
 - Search for competitive mentions in sales or product channels
 - Find recent deal feedback involving competitors
 
@@ -44,17 +47,10 @@ For each competitor:
 - Recent momentum: launches, funding, partnerships, customer wins
 
 #### Feature Comparison
-Create a comparison matrix:
-- List key capability areas relevant to the analysis
-- Rate each competitor's capabilities: strong, adequate, weak, absent
-- Note differentiators — where each product is meaningfully better
-- Flag areas where competitors are ahead, at parity, or behind
+Compare capabilities across key areas relevant to the analysis. See the **competitive-analysis** skill for rating frameworks and comparison matrix templates.
 
 #### Positioning Analysis
-- How does each competitor position themselves in the market?
-- What messaging and value propositions do they lead with?
-- Who is their ideal customer profile?
-- How does their positioning differ from ours?
+Analyze how each competitor positions themselves — target customer, category claim, key differentiator, and value proposition. See the **competitive-analysis** skill for positioning analysis frameworks.
 
 #### Strengths and Weaknesses
 For each competitor:

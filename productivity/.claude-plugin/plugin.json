@@ -1,7 +1,7 @@
 {
   "name": "productivity",
   "version": "1.0.0",
-  "description": "The todo list that does itself (and gets better over time)",
+  "description": "Manage tasks, plan your day, and build up memory of important context about your work. Syncs with your calendar, email, and chat to keep everything organized and on track.",
   "author": {
     "name": "Jake Marsh"
   }

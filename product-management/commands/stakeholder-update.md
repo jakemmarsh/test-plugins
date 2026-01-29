@@ -1,10 +1,13 @@
+---
+description: Generate a stakeholder update tailored to audience and cadence
+argument-hint: "<update type and audience>"
+---
+
 # Stakeholder Update
 
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
 Generate a stakeholder update tailored to the audience and cadence.
-
-## Trigger
-
-The user wants to write a status update, stakeholder update, weekly update, monthly report, launch announcement, or progress report.
 
 ## Workflow
 
@@ -27,22 +30,22 @@ Ask who the update is for:
 
 ### 3. Pull Context from Connected Tools
 
-If a **project management tool** is connected:
+If **~~project tracker** is connected:
 - Pull status of roadmap items and milestones
 - Identify completed items since last update
 - Surface items that are at risk or blocked
 - Pull sprint or iteration progress
 
-If **chat** is connected (Slack):
+If **~~chat** is connected:
 - Search for relevant team discussions and decisions
 - Find blockers or issues raised in channels
 - Identify key decisions made asynchronously
 
-If **email** is connected (Gmail):
-- Search for relevant stakeholder threads
-- Identify outstanding asks or commitments
+If **~~meeting transcription** is connected:
+- Pull recent meeting notes and discussion summaries
+- Find decisions and action items from relevant meetings
 
-If **docs** are connected (Google Drive):
+If **~~knowledge base** is connected:
 - Search for recent meeting notes
 - Find decision documents or design reviews
 
@@ -54,73 +57,24 @@ If no tools are connected, ask the user to provide:
 
 ### 4. Generate the Update
 
-Structure depends on audience and type:
+Structure the update for the target audience. See the **stakeholder-comms** skill for detailed templates, G/Y/R status definitions, and the ROAM risk communication framework.
 
-#### Executive / Leadership Update
+**For executives**: TL;DR, status color (G/Y/R), key progress tied to goals, decisions made, risks with mitigation, specific asks, and next milestones. Keep it under 300 words.
 
-**TL;DR**: One sentence summary of overall status.
+**For engineering**: What shipped (with links), what is in progress (with owners), blockers, decisions needed (with options and recommendation), and what is coming next.
 
-**Status**: Green / Yellow / Red with one-line justification.
+**For cross-functional partners**: What is coming that affects them, what you need from them (with deadlines), decisions that impact their team, and areas open for input.
 
-**Key Progress**:
-- 3-5 bullet points of what shipped or advanced
-- Each tied to a goal or OKR where possible
+**For customers**: What is new (framed as benefits), what is coming soon, known issues with workarounds, and how to provide feedback. No internal jargon.
 
-**Decisions Made**:
-- Key decisions with brief rationale
-
-**Risks & Blockers**:
-- Active risks with mitigation plans
-- Blockers with asks for help
-
-**Asks**:
-- What you need from leadership (decisions, resources, air cover)
-
-**Next Milestones**:
-- What is coming in the next 1-2 weeks with dates
-
-#### Engineering Team Update
-
-**Summary**: What shipped, what is in progress.
-
-**Completed**:
-- Items completed with links to PRs, tickets, or docs
-
-**In Progress**:
-- Active work items with owners and expected completion
-
-**Blockers**:
-- Technical and non-technical blockers with details
-
-**Decisions Needed**:
-- Technical or product decisions that need resolution, with options and recommendation
-
-**Coming Up**:
-- What is next in the backlog, with context on priority
-
-#### Launch Update
-
-**What Launched**: Clear description of the feature or product.
-
-**Why It Matters**: User problem solved and business impact expected.
-
-**Key Details**:
-- What is included (and what is not)
-- Availability (GA, beta, specific segments)
-- Known limitations
-
-**Success Metrics**: What we are watching and targets.
-
-**Support / Rollout Plan**: How this is being rolled out, training, support readiness.
-
-**Feedback Channels**: Where to send feedback or report issues.
+**For launch announcements**: What launched, why it matters, key details (scope, availability, limitations), success metrics, rollout plan, and feedback channels.
 
 ### 5. Review and Deliver
 
 After generating the update:
 - Ask if the user wants to adjust tone, detail level, or emphasis
-- Offer to format for the delivery channel (email, Slack post, doc, slides)
-- If email or chat is connected, offer to draft the message for sending
+- Offer to format for the delivery channel (email, chat post, doc, slides)
+- If **~~chat** is connected, offer to draft the message for sending
 
 ## Output Format
 

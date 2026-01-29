@@ -1,10 +1,6 @@
 ---
 name: memory-management
-description: >
-  Two-tier memory system that makes Claude a true workplace collaborator.
-  Decodes shorthand, acronyms, nicknames, and internal language so Claude
-  understands requests like a colleague would. CLAUDE.md for working memory,
-  memory/ directory for the full knowledge base.
+description: Two-tier memory system that makes Claude a true workplace collaborator. Decodes shorthand, acronyms, nicknames, and internal language so Claude understands requests like a colleague would. CLAUDE.md for working memory, memory/ directory for the full knowledge base.
 ---
 
 # Memory Management
@@ -204,7 +200,7 @@ $1.2M budget, 6-month timeline. Critical path for Horizon project.
 | Tool | Used for | Internal name |
 |------|----------|---------------|
 | Slack | Communication | - |
-| Linear | Engineering tasks | - |
+| Asana | Engineering tasks | - |
 | Salesforce | CRM | "SF" or "the CRM" |
 | Notion | Docs/wiki | - |
 

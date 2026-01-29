@@ -1,6 +1,13 @@
+---
+description: Analyze pipeline health — prioritize deals, flag risks, get a weekly action plan
+argument-hint: "<segment or rep>"
+---
+
 # /pipeline-review
 
-Analyze pipeline health, flag at-risk deals, and summarize coverage against targets.
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
+Analyze your pipeline health, prioritize deals, and get actionable recommendations for where to focus.
 
 ## Usage
 
@@ -8,81 +15,228 @@ Analyze pipeline health, flag at-risk deals, and summarize coverage against targ
 /pipeline-review
 ```
 
-Optional flags:
-- `/pipeline-review this-quarter` — Focus on current quarter close dates
-- `/pipeline-review next-quarter` — Focus on next quarter
-- `/pipeline-review all` — Full pipeline regardless of close date
+Then provide your pipeline data.
 
-## Workflow
+---
 
-1. **Get pipeline data**:
+## How It Works
 
-   **If CRM is connected**:
-   - Pull all open opportunities owned by the user (or the user's team if specified)
-   - For each opportunity, get: name, account, amount, stage, close date, next step, last activity date, days in current stage, primary contact
-   - Sort by close date
-
-   **If CRM is NOT connected**:
-   > "Connect a CRM MCP server to pull your pipeline automatically. You can also paste your pipeline data (deal name, amount, stage, close date) and I'll analyze it."
-
-   Wait for the user to paste data or provide it, then parse it into a structured format.
-
-2. **Pipeline health analysis**:
-
-### Coverage Summary
 ```
-## Pipeline Summary — [Quarter/Period]
-
-| Metric | Value |
-|---|---|
-| **Target** | $[quota] |
-| **Committed (Stage X+)** | $[amount] |
-| **Pipeline total** | $[amount] |
-| **Weighted pipeline** | $[amount] |
-| **Coverage ratio** | [X]x |
-| **Gap to target** | $[amount] or "On track" |
+┌─────────────────────────────────────────────────────────────────┐
+│                     PIPELINE REVIEW                              │
+├─────────────────────────────────────────────────────────────────┤
+│  STANDALONE (always works)                                       │
+│  ✓ Upload CSV export from your CRM                              │
+│  ✓ Or paste/describe your deals                                 │
+│  ✓ Health check: flag stale, stuck, and at-risk deals          │
+│  ✓ Prioritization: rank deals by impact and closability        │
+│  ✓ Hygiene audit: missing data, bad close dates, single-thread │
+│  ✓ Weekly action plan: what to focus on                        │
+├─────────────────────────────────────────────────────────────────┤
+│  SUPERCHARGED (when you connect your tools)                      │
+│  + CRM: Pull pipeline automatically, update records             │
+│  + Activity data for engagement scoring                         │
+│  + Historical patterns for risk prediction                      │
+│  + Calendar: See upcoming meetings per deal                     │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-### Stage Distribution
-Show deal count and total value by stage:
-```
-| Stage | Deals | Total Value | Avg Deal Size | Avg Days in Stage |
-|---|---|---|---|---|
-| [stage] | [count] | $[total] | $[avg] | [days] |
-```
+---
 
-### At-Risk Deals
-Flag deals that match any risk criteria:
+## What I Need From You
 
-- **Stale deals**: No activity in 14+ days
-- **Past close date**: Close date has passed without advancing
-- **Missing next steps**: No next step defined
-- **Single-threaded**: Only one contact engaged
-- **Understaged**: Large deal sitting in early stage past expected timeline
-- **Slipping**: Close date pushed more than once
+**Option A: Upload a CSV**
+Export your pipeline from your CRM (e.g. Salesforce, HubSpot). Helpful fields:
+- Deal/Opportunity name
+- Account name
+- Amount
+- Stage
+- Close date
+- Created date
+- Last activity date
+- Owner (if reviewing a team)
+- Primary contact
 
-For each at-risk deal:
+**Option B: Paste your deals**
 ```
-### [Deal Name] — $[amount] — [stage]
-- **Risk**: [what's wrong]
-- **Last activity**: [date and what it was]
-- **Recommended action**: [specific suggestion]
+Acme Corp - $50K - Negotiation - closes Jan 31 - last activity Jan 20
+TechStart - $25K - Demo scheduled - closes Feb 15 - no activity in 3 weeks
+BigCo - $100K - Discovery - closes Mar 30 - created last week
 ```
 
-### Pipeline Movement
-If historical data is available, show:
-- Deals added this period
-- Deals advanced (stage changes)
-- Deals pushed (close date moved out)
-- Deals lost
+**Option C: Describe your pipeline**
+"I have 12 deals. Two big ones in negotiation that I'm confident about. Three stuck in discovery for over a month. The rest are mid-stage but I haven't talked to some of them in a while."
 
-3. **Recommendations**:
-   - Top 3 deals to focus on this week and why
-   - Deals that should be downstaged or removed
-   - Pipeline generation needed to hit target
-   - Suggested next actions for each at-risk deal
+---
 
-4. **Offer next steps**:
-   - "Would you like me to prep for any of these deals?"
-   - "Would you like me to draft re-engagement outreach for stale deals?"
-   - If CRM connected: "Would you like me to update any close dates or stages?"
+## Output
+
+```markdown
+# Pipeline Review: [Date]
+
+**Data Source:** [CSV upload / Manual input / CRM]
+**Deals Analyzed:** [X]
+**Total Pipeline Value:** $[X]
+
+---
+
+## Pipeline Health Score: [X/100]
+
+| Dimension | Score | Issue |
+|-----------|-------|-------|
+| **Stage Progression** | [X]/25 | [X] deals stuck in same stage 30+ days |
+| **Activity Recency** | [X]/25 | [X] deals with no activity in 14+ days |
+| **Close Date Accuracy** | [X]/25 | [X] deals with close date in past |
+| **Contact Coverage** | [X]/25 | [X] deals single-threaded |
+
+---
+
+## Priority Actions This Week
+
+### 1. [Highest Priority Deal]
+**Why:** [Reason — large, closing soon, at risk, etc.]
+**Action:** [Specific next step]
+**Impact:** $[X] if you close it
+
+### 2. [Second Priority]
+**Why:** [Reason]
+**Action:** [Next step]
+
+### 3. [Third Priority]
+**Why:** [Reason]
+**Action:** [Next step]
+
+---
+
+## Deal Prioritization Matrix
+
+### Close This Week (Focus Time Here)
+| Deal | Amount | Stage | Close Date | Next Action |
+|------|--------|-------|------------|-------------|
+| [Deal] | $[X] | [Stage] | [Date] | [Action] |
+
+### Close This Month (Keep Warm)
+| Deal | Amount | Stage | Close Date | Status |
+|------|--------|-------|------------|--------|
+| [Deal] | $[X] | [Stage] | [Date] | [Status] |
+
+### Nurture (Check-in Periodically)
+| Deal | Amount | Stage | Close Date | Status |
+|------|--------|-------|------------|--------|
+| [Deal] | $[X] | [Stage] | [Date] | [Status] |
+
+---
+
+## Risk Flags
+
+### Stale Deals (No Activity 14+ Days)
+| Deal | Amount | Last Activity | Days Silent | Recommendation |
+|------|--------|---------------|-------------|----------------|
+| [Deal] | $[X] | [Date] | [X] | [Re-engage / Downgrade / Remove] |
+
+### Stuck Deals (Same Stage 30+ Days)
+| Deal | Amount | Stage | Days in Stage | Recommendation |
+|------|--------|-------|---------------|----------------|
+| [Deal] | $[X] | [Stage] | [X] | [Push / Multi-thread / Qualify out] |
+
+### Past Close Date
+| Deal | Amount | Close Date | Days Overdue | Recommendation |
+|------|--------|------------|--------------|----------------|
+| [Deal] | $[X] | [Date] | [X] | [Update date / Push to next quarter / Close lost] |
+
+### Single-Threaded (Only One Contact)
+| Deal | Amount | Contact | Risk | Recommendation |
+|------|--------|---------|------|----------------|
+| [Deal] | $[X] | [Name] | Champion leaves = deal dies | [Identify additional stakeholders] |
+
+---
+
+## Hygiene Issues
+
+| Issue | Count | Deals | Action |
+|-------|-------|-------|--------|
+| Missing close date | [X] | [List] | Add realistic close dates |
+| Missing amount | [X] | [List] | Estimate or qualify |
+| Missing next step | [X] | [List] | Define next action |
+| No primary contact | [X] | [List] | Assign contact |
+
+---
+
+## Pipeline Shape
+
+### By Stage
+| Stage | # Deals | Value | % of Pipeline |
+|-------|---------|-------|---------------|
+| [Stage] | [X] | $[X] | [X]% |
+
+### By Close Month
+| Month | # Deals | Value |
+|-------|---------|-------|
+| [Month] | [X] | $[X] |
+
+### By Deal Size
+| Size | # Deals | Value |
+|------|---------|-------|
+| $100K+ | [X] | $[X] |
+| $50K-100K | [X] | $[X] |
+| $25K-50K | [X] | $[X] |
+| <$25K | [X] | $[X] |
+
+---
+
+## Recommendations
+
+### This Week
+1. [ ] [Specific action for priority deal 1]
+2. [ ] [Action for at-risk deal]
+3. [ ] [Hygiene task]
+
+### This Month
+1. [ ] [Strategic action]
+2. [ ] [Pipeline building if needed]
+
+---
+
+## Deals to Consider Removing
+
+These deals may be dead weight:
+
+| Deal | Amount | Reason | Recommendation |
+|------|--------|--------|----------------|
+| [Deal] | $[X] | [No activity 60+ days, no response] | Mark closed-lost |
+| [Deal] | $[X] | [Pushed 3+ times, no champion] | Qualify out |
+```
+
+---
+
+## Prioritization Framework
+
+I'll rank your deals using this framework:
+
+| Factor | Weight | What I Look For |
+|--------|--------|-----------------|
+| **Close Date** | 30% | Deals closing soonest get priority |
+| **Deal Size** | 25% | Bigger deals = more focus |
+| **Stage** | 20% | Later stage = more focus |
+| **Activity** | 15% | Active deals get prioritized |
+| **Risk** | 10% | Lower risk = safer bet |
+
+You can tell me to weight differently: "Focus on big deals over soon deals" or "I need quick wins, prioritize close dates."
+
+---
+
+## If CRM Connected
+
+- I'll pull your pipeline automatically
+- Update records with new close dates, stages, next steps
+- Create follow-up tasks
+- Track hygiene improvements over time
+
+---
+
+## Tips
+
+1. **Review weekly** — Pipeline health decays fast. Weekly reviews catch issues early.
+2. **Kill dead deals** — Stale opportunities inflate your pipeline and distort forecasts. Be ruthless.
+3. **Multi-thread everything** — If one person goes dark, you need a backup contact.
+4. **Close dates should mean something** — A close date is when you expect signature, not when you hope for one.

@@ -1,9 +1,11 @@
 ---
 description: Search across all connected sources in one query
-allowed-tools: ["Bash", "Read", "Write", "Edit", "Grep", "Glob", "WebSearch", "WebFetch", "mcp__claude_ai_Slack__*", "mcp__claude_ai_Gmail__*", "mcp__claude_ai_Google_Drive_2__*", "mcp__claude_ai_Asana__*", "mcp__claude_ai_Salesforce__*", "mcp__claude_ai_Outline__*", "mcp__claude_ai_PubMed__*"]
+argument-hint: "<query>"
 ---
 
 # Search Command
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
 
 Search across all connected MCP sources in a single query. Decompose the user's question, run parallel searches, and synthesize results.
 
@@ -13,19 +15,19 @@ Search across all connected MCP sources in a single query. Decompose the user's 
 
 Before searching, determine which MCP sources are available. Attempt to identify connected tools from the available tool list. Common sources:
 
-- **Slack** — `mcp__claude_ai_Slack__*` tools
-- **Gmail** — `mcp__claude_ai_Gmail__*` tools
-- **Google Drive** — `mcp__claude_ai_Google_Drive_2__*` tools
-- **Asana** — `mcp__claude_ai_Asana__*` tools
-- **Salesforce** — `mcp__claude_ai_Salesforce__*` tools
-- **Outline** — `mcp__claude_ai_Outline__*` tools
+- **~~chat** — chat platform tools
+- **~~email** — email tools
+- **~~cloud storage** — cloud storage tools
+- **~~project tracker** — project tracking tools
+- **~~CRM** — CRM tools
+- **~~knowledge base** — knowledge base tools
 
 If no MCP sources are connected:
 ```
 To search across your tools, you'll need to connect at least one source.
-Check your MCP settings to add Slack, Gmail, Google Drive, or other tools.
+Check your MCP settings to add ~~chat, ~~email, ~~cloud storage, or other tools.
 
-Supported sources: Slack, Gmail, Google Drive, Asana, Salesforce, Outline,
+Supported sources: ~~chat, ~~email, ~~cloud storage, ~~project tracker, ~~CRM, ~~knowledge base,
 and any other MCP-connected service.
 ```
 
@@ -36,7 +38,7 @@ Analyze the search query to understand:
 - **Intent**: What is the user looking for? (a decision, a document, a person, a status update, a conversation)
 - **Entities**: People, projects, teams, tools mentioned
 - **Time constraints**: Recency signals ("this week", "last month", specific dates)
-- **Source hints**: References to specific tools ("in Slack", "that email", "the doc")
+- **Source hints**: References to specific tools ("in ~~chat", "that email", "the doc")
 - **Filters**: Extract explicit filters from the query:
   - `from:` — Filter by sender/author
   - `in:` — Filter by channel, folder, or location
@@ -48,33 +50,33 @@ Analyze the search query to understand:
 
 For each available source, create a targeted sub-query using that source's native search syntax:
 
-**Slack:**
-- Use `slack_search_public` or `slack_search_public_and_private`
-- Translate filters: `from:` maps to `from:`, `in:` maps to `in:`, dates map to `after:`/`before:`
+**~~chat:**
+- Use available search and read tools for your chat platform
+- Translate filters: `from:` maps to sender, `in:` maps to channel/room, dates map to time range filters
 - Use natural language queries for semantic search when appropriate
 - Use keyword queries for exact matches
 
-**Gmail:**
-- Use `gmail_search_messages`
-- Translate filters: `from:` maps to `from:`, dates map to `after:`/`before:` in YYYY/M/D format
-- Map `type:` to `has:attachment` or subject-line searches as appropriate
+**~~email:**
+- Use available email search tools
+- Translate filters: `from:` maps to sender, dates map to time range filters
+- Map `type:` to attachment filters or subject-line searches as appropriate
 
-**Google Drive:**
-- Use `gdrive_query_search`
-- Translate to Drive query syntax: `name contains`, `fullText contains`, `modifiedTime >`, `mimeType =`
+**~~cloud storage:**
+- Use available file search tools
+- Translate to file query syntax: name contains, full text contains, modified date, file type
 - Consider both file names and content
 
-**Asana:**
-- Use `asana_search_tasks` or `asana_typeahead_search`
+**~~project tracker:**
+- Use available task search or typeahead tools
 - Map to task text search, assignee filters, date filters, project filters
 
-**Salesforce:**
-- Use `salesforce_query` with SOQL
+**~~CRM:**
+- Use available CRM query tools
 - Search across Account, Contact, Opportunity, and other relevant objects
 
-**Outline:**
-- Use `semantic_search_outline_documents` for conceptual questions
-- Use `search_outline_documents` for keyword matches
+**~~knowledge base:**
+- Use semantic search for conceptual questions
+- Use keyword search for exact matches
 
 ### 4. Execute Searches in Parallel
 
@@ -88,7 +90,7 @@ For each source:
 ### 5. Rank and Deduplicate Results
 
 **Deduplication:**
-- Identify the same information appearing across sources (e.g., a decision discussed in Slack AND confirmed via email)
+- Identify the same information appearing across sources (e.g., a decision discussed in ~~chat AND confirmed via email)
 - Group related results together rather than showing duplicates
 - Prefer the most authoritative or complete version
 
@@ -107,9 +109,9 @@ Format the response as a synthesized answer, not a raw list of results:
 [Direct answer to the question]
 
 Sources:
-- [Source 1: brief description] (Slack, #channel, date)
-- [Source 2: brief description] (Gmail, from person, date)
-- [Source 3: brief description] (GDrive, doc name, last modified)
+- [Source 1: brief description] (~~chat, #channel, date)
+- [Source 2: brief description] (~~email, from person, date)
+- [Source 3: brief description] (~~cloud storage, doc name, last modified)
 ```
 
 **For exploratory queries ("what do we know about X"):**
@@ -117,9 +119,9 @@ Sources:
 [Synthesized summary combining information from all sources]
 
 Found across:
-- Slack: X relevant messages in Y channels
-- Gmail: X relevant threads
-- GDrive: X related documents
+- ~~chat: X relevant messages in Y channels
+- ~~email: X relevant threads
+- ~~cloud storage: X related documents
 - [Other sources as applicable]
 
 Key sources:

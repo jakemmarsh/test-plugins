@@ -1,4 +1,11 @@
+---
+description: Multi-source research on a customer question or topic with source attribution
+argument-hint: "<question or topic>"
+---
+
 # Research
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
 
 Multi-source research on a customer question, product topic, or account-related inquiry. Synthesizes findings from all available sources with clear attribution.
 
@@ -14,23 +21,23 @@ Multi-source research on a customer question, product topic, or account-related 
 
 Identify what type of research is needed:
 - **Customer question**: Something a customer has asked that needs an answer (e.g., "Does our product support SSO with Okta?")
-- **Account research**: Background on a customer or prospect (e.g., "What do we know about Acme Corp's technical stack?")
-- **Topic research**: General topic relevant to customer work (e.g., "Best practices for enterprise onboarding")
-- **Competitive/market**: Competitive positioning or market context (e.g., "How do we compare to [competitor] on feature X?")
+- **Issue investigation**: Background on a reported problem (e.g., "Has this bug been reported before? What's the known workaround?")
+- **Account context**: History with a specific customer (e.g., "What did we tell Acme Corp last time they asked about this?")
+- **Topic research**: General topic relevant to support work (e.g., "Best practices for webhook retry logic")
 
 ### 2. Search Available Sources
 
 Search in priority order, adapting to what is connected:
 
 **Tier 1 — Internal Documentation (highest confidence):**
-- Knowledge base / wiki (if connected): product docs, runbooks, FAQs
-- Google Drive: internal documents, specs, guides, past research
-- CRM notes: previous answers to similar questions, account context
+- ~~knowledge base (if connected): product docs, runbooks, FAQs
+- ~~cloud storage: internal documents, specs, guides, past research
+- ~~CRM notes: previous answers to similar questions, account context
 
 **Tier 2 — Team Communications:**
-- Slack: search for the topic in relevant channels; check if teammates have discussed or answered this before
-- Email: search for previous correspondence on this topic
-- Support tickets (if connected): check if this has been asked/resolved before
+- ~~chat: search for the topic in relevant channels; check if teammates have discussed or answered this before
+- ~~email: search for previous correspondence on this topic
+- ~~support platform (if connected): check if this has been asked/resolved before
 
 **Tier 3 — External Sources:**
 - Web search: official documentation, blog posts, community forums
@@ -83,7 +90,7 @@ If no connected sources yield results:
 - Perform web research on the topic
 - Ask the user for internal context:
   - "I couldn't find this in connected sources. Do you have internal docs or knowledge base articles about this?"
-  - "Has your team discussed this topic before? Any Slack channels I should check?"
+  - "Has your team discussed this topic before? Any ~~chat channels I should check?"
   - "Is there a subject matter expert who would know the answer?"
 - Be transparent about limitations:
   - "This answer is based on web research only — please verify against your internal documentation before sharing with the customer."

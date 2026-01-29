@@ -7,57 +7,57 @@
     {
       "name": "productivity",
       "source": "./productivity",
-      "description": "General productivity - task management, workplace memory, daily planning, activity sync"
+      "description": "Manage tasks, plan your day, and build up memory of important context about your work. Syncs with your calendar, email, and chat to keep everything organized and on track."
     },
     {
       "name": "enterprise-search",
       "source": "./enterprise-search",
-      "description": "Unified search across your company's tools - find anything across email, chat, docs, and wikis in one query"
+      "description": "Search across all of your company's tools in one place. Find anything across email, chat, documents, and wikis without switching between apps."
     },
     {
       "name": "cowork-plugin-management",
       "source": "./cowork-plugin-management",
-      "description": "Manage and customize Cowork plugins for your organization's tools and workflows"
+      "description": "Create, customize, and manage plugins tailored to your organization's tools and workflows. Configure MCP servers, adjust plugin behavior, and adapt templates to match how your team works."
     },
     {
       "name": "sales",
       "source": "./sales",
-      "description": "Sales team productivity - prospecting, outreach, pipeline management, call prep, and deal strategy"
+      "description": "Prospect, craft outreach, and build deal strategy faster. Prep for calls, manage your pipeline, and write personalized messaging that moves deals forward."
     },
     {
       "name": "finance",
       "source": "./finance",
-      "description": "Finance and accounting productivity - journal entries, reconciliation, financial statements, variance analysis, and audit support"
+      "description": "Streamline finance and accounting workflows, from journal entries and reconciliation to financial statements and variance analysis. Speed up audit prep, month-end close, and keeping your books clean."
     },
     {
       "name": "data",
       "source": "./data",
-      "description": "Data analyst productivity - SQL queries, data exploration, visualization, dashboards, and insight generation"
+      "description": "Write SQL, explore datasets, and generate insights faster. Build visualizations and dashboards, and turn raw data into clear stories for stakeholders."
     },
     {
       "name": "legal",
       "source": "./legal",
-      "description": "In-house legal productivity - contract review, NDA triage, compliance workflows, legal briefs, and knowledge management"
+      "description": "Speed up contract review, NDA triage, and compliance workflows for in-house legal teams. Draft legal briefs, organize precedent research, and manage institutional knowledge."
     },
     {
       "name": "marketing",
       "source": "./marketing",
-      "description": "Marketing productivity - content creation, campaign planning, brand voice, competitive analysis, and performance reporting"
+      "description": "Create content, plan campaigns, and analyze performance across marketing channels. Maintain brand voice consistency, track competitors, and report on what's working."
     },
     {
       "name": "customer-support",
       "source": "./customer-support",
-      "description": "Customer support and success productivity - account health, customer research, QBR prep, response drafting, and usage analysis"
+      "description": "Stay on top of account health, prep for QBRs, and draft customer responses. Research customer context, analyze usage patterns, and surface the signals that matter."
     },
     {
       "name": "product-management",
       "source": "./product-management",
-      "description": "Product management productivity - feature specs, roadmap planning, stakeholder updates, user research synthesis, and competitive analysis"
+      "description": "Write feature specs, plan roadmaps, and synthesize user research faster. Keep stakeholders updated and stay ahead of the competitive landscape."
     },
     {
       "name": "bio-research",
       "source": "./bio-research",
-      "description": "Biological research - literature search, single-cell analysis, sequencing pipelines, clinical trial protocols, drug discovery, and scientific strategy"
+      "description": "End-to-end support for biological research, from literature search and single-cell analysis to sequencing pipelines and clinical trial design. Covers drug discovery workflows and scientific strategy."
     }
   ]
 }

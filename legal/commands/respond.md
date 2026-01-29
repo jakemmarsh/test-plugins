@@ -1,6 +1,15 @@
+---
+description: Generate a response to a common legal inquiry using configured templates
+argument-hint: "[inquiry-type]"
+---
+
 # /respond -- Generate Response from Templates
 
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
 Generate a response to a common legal inquiry using configured templates. Customizes the response with specific details and includes escalation triggers for situations that should not use a templated response.
+
+**Important**: This command assists with legal workflows but does not provide legal advice. Generated responses should be reviewed by qualified legal professionals before being sent.
 
 ## Invocation
 

@@ -1,10 +1,13 @@
+---
+description: Write a feature spec or PRD from a problem statement or feature idea
+argument-hint: "<feature or problem statement>"
+---
+
 # Write Spec
 
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
 Write a feature specification or product requirements document (PRD).
-
-## Trigger
-
-The user wants to write a feature spec, PRD, product requirements document, or spec out a feature or product idea.
 
 ## Workflow
 
@@ -28,63 +31,34 @@ Ask the user for the following. Be conversational — do not dump all questions 
 
 ### 3. Pull Context from Connected Tools
 
-If a **project management tool** is connected (Asana, Linear, Jira):
+If **~~project tracker** is connected:
 - Search for related tickets, epics, or features
 - Pull in any existing requirements or acceptance criteria
 - Identify dependencies on other work items
 
-If a **docs tool** is connected (Google Drive, Notion, Confluence):
+If **~~knowledge base** is connected:
 - Search for related research documents, prior specs, or design docs
 - Pull in relevant user research findings
 - Find related meeting notes or decision records
+
+If **~~design** is connected:
+- Pull related mockups, wireframes, or design explorations
+- Search for design system components relevant to the feature
 
 If these tools are not connected, work entirely from what the user provides. Do not ask the user to connect tools — just proceed with available information.
 
 ### 4. Generate the PRD
 
-Produce a structured PRD with these sections:
+Produce a structured PRD with these sections. See the **feature-spec** skill for detailed guidance on user stories, requirements categorization, acceptance criteria, and success metrics.
 
-#### Problem Statement
-2-3 sentences describing the user problem and why it matters now. Include who is affected and the impact of not solving it.
-
-#### Goals
-3-5 specific, measurable goals for this feature. Each goal should be tied to a user outcome or business metric.
-
-#### Non-Goals
-Explicitly state what this feature will NOT do. This is critical for scope management. List 3-5 things that are adjacent but out of scope, and briefly explain why.
-
-#### User Stories
-Write user stories in standard format:
-- "As a [user type], I want [capability] so that [benefit]"
-- Group by user type if multiple personas are involved
-- Include edge cases and error states as stories
-
-#### Requirements
-
-**Must-Have (P0)**
-Requirements that are essential for launch. The feature is not shippable without these.
-
-**Nice-to-Have (P1)**
-Requirements that significantly improve the feature but can ship without.
-
-**Future Considerations (P2)**
-Things we explicitly want to support later but are out of scope for v1.
-
-For each requirement, include:
-- Clear description of the behavior
-- Acceptance criteria (Given/When/Then or checklist format)
-
-#### Success Metrics
-Define how success will be measured:
-- **Leading indicators**: Metrics that change quickly after launch (adoption rate, activation, task completion)
-- **Lagging indicators**: Metrics that take time to move (retention impact, revenue impact, NPS change)
-- Include specific targets where possible ("50% of enterprise accounts using SSO within 3 months")
-
-#### Open Questions
-List unresolved questions that need answers before or during implementation. Tag each with who needs to answer it (engineering, design, legal, data, etc.).
-
-#### Timeline Considerations
-High-level phasing if applicable. Note any hard deadlines, dependencies on other teams, or sequencing constraints.
+- **Problem Statement**: The user problem, who is affected, and impact of not solving it (2-3 sentences)
+- **Goals**: 3-5 specific, measurable outcomes tied to user or business metrics
+- **Non-Goals**: 3-5 things explicitly out of scope, with brief rationale for each
+- **User Stories**: Standard format ("As a [user type], I want [capability] so that [benefit]"), grouped by persona
+- **Requirements**: Categorized as Must-Have (P0), Nice-to-Have (P1), and Future Considerations (P2), each with acceptance criteria
+- **Success Metrics**: Leading indicators (change quickly) and lagging indicators (change over time), with specific targets
+- **Open Questions**: Unresolved questions tagged with who needs to answer (engineering, design, legal, data)
+- **Timeline Considerations**: Hard deadlines, dependencies, and phasing
 
 ### 5. Review and Iterate
 

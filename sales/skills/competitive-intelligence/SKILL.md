@@ -1,173 +1,401 @@
+---
+name: competitive-intelligence
+description: Research your competitors and build an interactive battlecard. Outputs an HTML artifact with clickable competitor cards and a comparison matrix. Trigger with "competitive intel", "research competitors", "how do we compare to [competitor]", "battlecard for [competitor]", or "what's new with [competitor]".
+---
+
 # Competitive Intelligence
 
-Framework for gathering, organizing, and using competitive intelligence in the sales process.
+Research your competitors extensively and generate an **interactive HTML battlecard** you can use in deals. The output is a self-contained artifact with clickable competitor tabs and an overall comparison matrix.
 
-## Win/Loss Pattern Analysis
-
-### What to Track for Every Closed Deal
-
-**For wins, capture**:
-- What competitors were involved?
-- Why did the customer choose us? (in their words, not ours)
-- What was the deciding factor? (price, features, relationship, timing, trust)
-- Who was the champion and what motivated them?
-- What objections did we overcome and how?
-- How long was the sales cycle? Longer or shorter than average?
-- Was there a specific moment the deal tipped in our favor?
-
-**For losses, capture**:
-- Who won and why? (in the customer's words if possible)
-- What could we have done differently?
-- Was it a product gap, pricing issue, relationship gap, or timing issue?
-- Did we lose on merit or on process? (e.g., we had a better product but they had a better champion internally)
-- Were there early warning signs we missed?
-- Can we re-engage in the future? If so, when?
-
-### Identifying Patterns
-
-Review win/loss data periodically to identify:
-
-**Win patterns**:
-- Which competitors do we beat most often? Why?
-- What deal characteristics predict wins? (deal size, industry, persona, use case)
-- What sales activities correlate with winning? (demos, POCs, executive involvement)
-- Which value props resonate most in competitive deals?
-
-**Loss patterns**:
-- Which competitors do we lose to most often? Why?
-- Are losses concentrated in specific segments, deal sizes, or use cases?
-- Are there common objections we fail to overcome?
-- Do losses correlate with sales cycle length, number of stakeholders, or other factors?
-
-**Use patterns to improve**:
-- Focus prospecting on segments where you win most
-- Develop specific plays for each frequent competitor
-- Address recurring objections with better proof points or product improvements
-- Escalate or bring in specialists earlier when facing tough competitors
-
-## Competitor Positioning and Differentiation
-
-### Building a Competitive Battlecard
-
-For each major competitor, maintain a battlecard with:
+## How It Works
 
 ```
-## [Competitor Name] Battlecard
-
-### Overview
-- **What they do**: [one-line description]
-- **Target market**: [who they sell to]
-- **Pricing model**: [how they charge — per seat, usage, flat fee]
-- **Market position**: [leader, challenger, niche player]
-
-### Where They Win
-- [Strength 1 — be honest about where they're genuinely strong]
-- [Strength 2]
-- [Strength 3]
-
-### Where We Win
-- [Our advantage 1 — specific and provable, not generic]
-- [Our advantage 2]
-- [Our advantage 3]
-
-### Their Common Pitch
-[What their reps typically say about themselves and about us]
-
-### How to Position Against Them
-- **If they come up early**: [strategy for when you know they're evaluating]
-- **If the customer is already using them**: [displacement strategy]
-- **If they come up late**: [strategy for when they're added to evaluation]
-
-### Common Objections When Competing
-| Objection | Response |
-|---|---|
-| "[Their product does X better]" | [How to address — acknowledge, pivot, differentiate] |
-| "[They're cheaper]" | [Value-based response, TCO argument] |
-| "[They're more established]" | [Innovation, agility, customer focus argument] |
-
-### Landmines to Plant
-Questions to ask the prospect that expose competitor weaknesses (without badmouthing):
-- "[Question that highlights a known competitor limitation]"
-- "[Question that surfaces a pain point their product doesn't address well]"
-
-### Reference Customers Who Switched
-- [Customer who switched from competitor to you — why and outcome]
+┌─────────────────────────────────────────────────────────────────┐
+│                  COMPETITIVE INTELLIGENCE                        │
+├─────────────────────────────────────────────────────────────────┤
+│  ALWAYS (works standalone via web search)                        │
+│  ✓ Competitor product deep-dive: features, pricing, positioning │
+│  ✓ Recent releases: what they've shipped in last 90 days        │
+│  ✓ Your company releases: what you've shipped to counter        │
+│  ✓ Differentiation matrix: where you win vs. where they win     │
+│  ✓ Sales talk tracks: how to position against each competitor   │
+│  ✓ Landmine questions: expose their weaknesses naturally        │
+├─────────────────────────────────────────────────────────────────┤
+│  OUTPUT: Interactive HTML Battlecard                             │
+│  ✓ Comparison matrix overview                                    │
+│  ✓ Clickable tabs for each competitor                           │
+│  ✓ Dark theme, professional styling                             │
+│  ✓ Self-contained HTML file — share or host anywhere            │
+├─────────────────────────────────────────────────────────────────┤
+│  SUPERCHARGED (when you connect your tools)                      │
+│  + CRM: Win/loss data, competitor mentions in closed deals      │
+│  + Docs: Existing battlecards, competitive playbooks            │
+│  + Chat: Internal intel, field reports from colleagues          │
+│  + Transcripts: Competitor mentions in customer calls           │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
-### Positioning Principles
+---
 
-1. **Never badmouth competitors**: It reflects poorly on you. Instead, ask questions that let the customer discover limitations themselves.
-2. **Acknowledge strengths genuinely**: "They're a solid product for [use case]. Where we differentiate is [specific area]." Credibility comes from honesty.
-3. **Compete on your terms**: Steer evaluations toward criteria where you're strong. If they excel at feature X and you excel at feature Y, make the conversation about Y.
-4. **Use proof points, not claims**: "We're better" means nothing. "Our customers see 40% improvement in [metric] vs. [benchmark]" means everything.
-5. **Focus on outcomes, not features**: Customers don't buy features. They buy results. Talk about what they'll achieve, not what buttons they'll click.
+## Getting Started
 
-## Objection Handling Framework
+When you run this skill, I'll ask for context:
 
-### The LAER Framework
+**Required:**
+- What company do you work for? (or I'll detect from your email)
+- Who are your main competitors? (1-5 names)
 
-For every competitive objection, follow this structure:
+**Optional:**
+- Which competitor do you want to focus on first?
+- Any specific deals where you're competing against them?
+- Pain points you've heard from customers about competitors?
 
-1. **Listen**: Let them finish. Don't interrupt or get defensive. Acknowledge you heard them.
-2. **Acknowledge**: Validate their concern. "That's a fair point" or "I understand why that matters to you."
-3. **Explore**: Ask a follow-up question to understand what's behind the objection. "Can you tell me more about why [competitor feature] is important for your workflow?"
-4. **Respond**: Address the specific concern with evidence. Use customer stories, data, or demonstrations — not just assertions.
+If I already have your seller context from a previous session, I'll confirm and skip the questions.
 
-### Common Objection Categories
+---
 
-**Price objections**:
-- Reframe to total cost of ownership (implementation, training, ongoing maintenance)
-- Quantify the value gap (what does the problem cost them? How does your ROI compare to the price difference?)
-- Explore what "too expensive" really means — is it budget, value perception, or competitive pricing pressure?
+## Connectors (Optional)
 
-**Feature objections**:
-- Understand the use case behind the feature request — often there's a different way to solve it
-- Separate must-haves from nice-to-haves
-- Share roadmap direction if relevant (without overpromising)
-- Provide proof that your approach delivers the outcome they want, even if the feature looks different
+| Connector | What It Adds |
+|-----------|--------------|
+| **CRM** | Win/loss history against each competitor, deal-level competitor tracking |
+| **Docs** | Existing battlecards, product comparison docs, competitive playbooks |
+| **Chat** | Internal chat intel (e.g. Slack) — what your team is hearing from the field |
+| **Transcripts** | Competitor mentions in customer calls, objections raised |
 
-**Risk objections** (too new, too small, unproven):
-- Reference customers in their industry or of similar size
-- Offer references, case studies, or pilot programs
-- Address security, compliance, or reliability concerns with specifics
-- Highlight executive team credibility and company trajectory
+> **No connectors?** Web research works great. I'll pull everything from public sources — product pages, pricing, blogs, release notes, reviews, job postings.
 
-**Timing objections** (not now, too busy, next year):
-- Explore what would change between now and then
-- Quantify the cost of waiting (what are they losing every month they don't solve this?)
-- Propose a low-effort next step (not a full evaluation — just a 15-minute call or a quick assessment)
+---
 
-**Status quo objections** (current solution is fine):
-- Ask about pain points with current approach — even satisfied users have frustrations
-- Share how peers are evolving beyond the status quo
-- Highlight risks of standing still (competitive disadvantage, technical debt, opportunity cost)
+## Output: Interactive HTML Battlecard
 
-## Gathering Competitive Intel from Calls and Conversations
+The skill generates a **self-contained HTML file** with:
 
-### What to Listen For
+### 1. Comparison Matrix (Landing View)
+Overview comparing you vs. all competitors at a glance:
+- Feature comparison grid
+- Pricing comparison
+- Market positioning
+- Win rate indicators (if CRM connected)
 
-During every customer interaction, listen for competitive signals:
+### 2. Competitor Tabs (Click to Expand)
+Each competitor gets a clickable card that expands to show:
+- Company profile (size, funding, target market)
+- What they sell and how they position
+- Recent releases (last 90 days)
+- Where they win vs. where you win
+- Pricing intelligence
+- Talk tracks for different scenarios
+- Objection handling
+- Landmine questions
 
-- **Direct mentions**: "We're also looking at [competitor]" or "We currently use [competitor]"
-- **Feature comparisons**: "Does your product do [feature]?" — often inspired by a competitor demo
-- **Pricing references**: "Your competitor offered us [price/terms]" — may be accurate or a negotiation tactic
-- **Objections with specifics**: Detailed objections about your product often come from competitor sales reps coaching the prospect
-- **Evaluation criteria shifts**: If evaluation criteria suddenly change, a competitor may be influencing the process
+### 3. Your Company Card
+- Your releases (last 90 days)
+- Your key differentiators
+- Proof points and customer quotes
 
-### How to Respond in the Moment
+---
 
-When a competitor comes up on a call:
-1. Stay calm and confident — never show concern or surprise
-2. Ask: "What's drawing you to [competitor]?" — understand what they value
-3. Acknowledge: "They're a solid company" — builds your credibility
-4. Pivot: "Where we see companies like yours get the most value is [your differentiator]"
-5. Plant a landmine: Ask a question that exposes a known competitor weakness without naming them
+## HTML Structure
 
-### Recording and Sharing Intel
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battlecard: [Your Company] vs Competitors</title>
+    <style>
+        /* Dark theme, professional styling */
+        /* Tabbed navigation */
+        /* Expandable cards */
+        /* Responsive design */
+    </style>
+</head>
+<body>
+    <!-- Header with your company + date -->
+    <header>
+        <h1>[Your Company] Competitive Battlecard</h1>
+        <p>Generated: [Date] | Competitors: [List]</p>
+    </header>
 
-After every interaction where competitive intel surfaces:
-- Log it in CRM on the opportunity record
-- Note: Which competitor, what was said, by whom, and the context
-- Share significant intel with your team (new competitor, new pricing, new features)
-- Update battlecards when you learn new information
-- Feed insights to product team when competitors' strengths point to genuine product gaps
+    <!-- Tab Navigation -->
+    <nav class="tabs">
+        <button class="tab active" data-tab="matrix">Comparison Matrix</button>
+        <button class="tab" data-tab="competitor-1">[Competitor 1]</button>
+        <button class="tab" data-tab="competitor-2">[Competitor 2]</button>
+        <button class="tab" data-tab="competitor-3">[Competitor 3]</button>
+    </nav>
+
+    <!-- Comparison Matrix Tab -->
+    <section id="matrix" class="tab-content active">
+        <h2>Head-to-Head Comparison</h2>
+        <table class="comparison-matrix">
+            <!-- Feature rows with you vs each competitor -->
+        </table>
+
+        <h2>Quick Win/Loss Guide</h2>
+        <div class="win-loss-grid">
+            <!-- Per-competitor: when you win, when you lose -->
+        </div>
+    </section>
+
+    <!-- Individual Competitor Tabs -->
+    <section id="competitor-1" class="tab-content">
+        <div class="battlecard">
+            <div class="profile"><!-- Company info --></div>
+            <div class="differentiation"><!-- Where they win / you win --></div>
+            <div class="talk-tracks"><!-- Scenario-based positioning --></div>
+            <div class="objections"><!-- Common objections + responses --></div>
+            <div class="landmines"><!-- Questions to ask --></div>
+        </div>
+    </section>
+
+    <script>
+        // Tab switching logic
+        // Expand/collapse sections
+    </script>
+</body>
+</html>
+```
+
+---
+
+## Visual Design
+
+### Color System
+```css
+:root {
+    /* Dark theme base */
+    --bg-primary: #0a0d14;
+    --bg-elevated: #0f131c;
+    --bg-surface: #161b28;
+    --bg-hover: #1e2536;
+
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.7);
+    --text-muted: rgba(255, 255, 255, 0.5);
+
+    /* Accent (your brand or neutral) */
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+
+    /* Status indicators */
+    --you-win: #10b981;
+    --they-win: #ef4444;
+    --tie: #f59e0b;
+}
+```
+
+### Card Design
+- Rounded corners (12px)
+- Subtle borders (1px, low opacity)
+- Hover states with slight elevation
+- Smooth transitions (200ms)
+
+### Comparison Matrix
+- Sticky header row
+- Color-coded winner indicators (green = you, red = them, yellow = tie)
+- Expandable rows for detail
+
+---
+
+## Execution Flow
+
+### Phase 1: Gather Seller Context
+
+```
+If first time:
+1. Ask: "What company do you work for?"
+2. Ask: "What do you sell? (product/service in one line)"
+3. Ask: "Who are your main competitors? (up to 5)"
+4. Store context for future sessions
+
+If returning user:
+1. Confirm: "Still at [Company] selling [Product]?"
+2. Ask: "Same competitors, or any new ones to add?"
+```
+
+### Phase 2: Research Your Company (Always)
+
+```
+Web searches:
+1. "[Your company] product" — current offerings
+2. "[Your company] pricing" — pricing model
+3. "[Your company] news" — recent announcements (90 days)
+4. "[Your company] product updates OR changelog OR releases" — what you've shipped
+5. "[Your company] vs [competitor]" — existing comparisons
+```
+
+### Phase 3: Research Each Competitor (Always)
+
+```
+For each competitor, run:
+1. "[Competitor] product features" — what they offer
+2. "[Competitor] pricing" — how they charge
+3. "[Competitor] news" — recent announcements
+4. "[Competitor] product updates OR changelog OR releases" — what they've shipped
+5. "[Competitor] reviews G2 OR Capterra OR TrustRadius" — customer sentiment
+6. "[Competitor] vs [alternatives]" — how they position
+7. "[Competitor] customers" — who uses them
+8. "[Competitor] careers" — hiring signals (growth areas)
+```
+
+### Phase 4: Pull Connected Sources (If Available)
+
+```
+If CRM connected:
+1. Query closed-won deals with competitor field = [Competitor]
+2. Query closed-lost deals with competitor field = [Competitor]
+3. Extract win/loss patterns
+
+If docs connected:
+1. Search for "battlecard [competitor]"
+2. Search for "competitive [competitor]"
+3. Pull existing positioning docs
+
+If chat connected:
+1. Search for "[Competitor]" mentions (last 90 days)
+2. Extract field intel and colleague insights
+
+If transcripts connected:
+1. Search calls for "[Competitor]" mentions
+2. Extract objections and customer quotes
+```
+
+### Phase 5: Build HTML Artifact
+
+```
+1. Structure data for each competitor
+2. Build comparison matrix
+3. Generate individual battlecards
+4. Create talk tracks for each scenario
+5. Compile landmine questions
+6. Render as self-contained HTML
+7. Save as [YourCompany]-battlecard-[date].html
+```
+
+---
+
+## Data Structure Per Competitor
+
+```yaml
+competitor:
+  name: "[Name]"
+  website: "[URL]"
+  profile:
+    founded: "[Year]"
+    funding: "[Stage + amount]"
+    employees: "[Count]"
+    target_market: "[Who they sell to]"
+    pricing_model: "[Per seat / usage / etc.]"
+    market_position: "[Leader / Challenger / Niche]"
+
+  what_they_sell: "[Product summary]"
+  their_positioning: "[How they describe themselves]"
+
+  recent_releases:
+    - date: "[Date]"
+      release: "[Feature/Product]"
+      impact: "[Why it matters]"
+
+  where_they_win:
+    - area: "[Area]"
+      advantage: "[Their strength]"
+      how_to_handle: "[Your counter]"
+
+  where_you_win:
+    - area: "[Area]"
+      advantage: "[Your strength]"
+      proof_point: "[Evidence]"
+
+  pricing:
+    model: "[How they charge]"
+    entry_price: "[Starting price]"
+    enterprise: "[Enterprise pricing]"
+    hidden_costs: "[Implementation, etc.]"
+    talk_track: "[How to discuss pricing]"
+
+  talk_tracks:
+    early_mention: "[Strategy if they come up early]"
+    displacement: "[Strategy if customer uses them]"
+    late_addition: "[Strategy if added late to eval]"
+
+  objections:
+    - objection: "[What customer says]"
+      response: "[How to handle]"
+
+  landmines:
+    - "[Question that exposes their weakness]"
+
+  win_loss: # If CRM connected
+    win_rate: "[X]%"
+    common_win_factors: "[What predicts wins]"
+    common_loss_factors: "[What predicts losses]"
+```
+
+---
+
+## Delivery
+
+```markdown
+## ✓ Battlecard Created
+
+[View your battlecard](file:///path/to/[YourCompany]-battlecard-[date].html)
+
+---
+
+**Summary**
+- **Your Company**: [Name]
+- **Competitors Analyzed**: [List]
+- **Data Sources**: Web research [+ CRM] [+ Docs] [+ Transcripts]
+
+---
+
+**How to Use**
+- **Before a call**: Open the relevant competitor tab, review talk tracks
+- **During a call**: Reference landmine questions
+- **After win/loss**: Update with new intel
+
+---
+
+**Sharing Options**
+- **Local file**: Open in any browser
+- **Host it**: Upload to Netlify, Vercel, or internal wiki
+- **Share directly**: Send the HTML file to teammates
+
+---
+
+**Keep it Fresh**
+Run this skill again to refresh with latest intel. Recommended: monthly or before major deals.
+```
+
+---
+
+## Refresh Cadence
+
+Competitive intel gets stale. Recommended refresh:
+
+| Trigger | Action |
+|---------|--------|
+| **Monthly** | Quick refresh — new releases, news, pricing changes |
+| **Before major deal** | Deep refresh for specific competitor in that deal |
+| **After win/loss** | Update patterns with new data |
+| **Competitor announcement** | Immediate update on that competitor |
+
+---
+
+## Tips for Better Intel
+
+1. **Be honest about weaknesses** — Credibility comes from acknowledging where competitors are strong
+2. **Focus on outcomes, not features** — "They have X feature" matters less than "customers achieve Y result"
+3. **Update from the field** — Best intel comes from actual customer conversations, not just websites
+4. **Plant landmines, don't badmouth** — Ask questions that expose weaknesses; never trash-talk
+5. **Track releases religiously** — What they ship tells you their strategy and your opportunity
+
+---
+
+## Related Skills
+
+- **account-research** — Research a specific prospect before reaching out
+- **call-prep** — Prep for a call where you know competitor is involved
+- **create-an-asset** — Build a custom comparison page for a specific deal

@@ -1,4 +1,11 @@
+---
+description: Research competitors and generate a positioning and messaging comparison
+argument-hint: "<competitor or market segment>"
+---
+
 # Competitive Brief
+
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
 
 Research competitors and generate a structured competitive analysis comparing positioning, messaging, content strategy, and market presence.
 

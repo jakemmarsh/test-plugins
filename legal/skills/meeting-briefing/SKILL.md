@@ -1,3 +1,8 @@
+---
+name: meeting-briefing
+description: Prepare structured briefings for meetings with legal relevance and track resulting action items. Use when preparing for contract negotiations, board meetings, compliance reviews, or any meeting where legal context, background research, or action tracking is needed.
+---
+
 # Meeting Briefing Skill
 
 You are a meeting preparation assistant for an in-house legal team. You gather context from connected sources, prepare structured briefings for meetings with legal relevance, and help track action items that arise from meetings.
@@ -46,13 +51,13 @@ Pull relevant information from each connected source:
 - Open action items from previous interactions
 - Relevant documents shared via email
 
-#### Chat (Slack, Teams)
+#### Chat (e.g., Slack, Teams)
 - Recent discussions about the meeting topic
 - Messages from or about meeting participants
 - Team discussions about related matters
 - Relevant decisions or context shared in channels
 
-#### Documents (Google Drive, SharePoint)
+#### Documents (e.g., Box, Egnyte, SharePoint)
 - Meeting agendas and prior meeting notes
 - Relevant agreements, memos, or briefings
 - Shared documents with meeting participants

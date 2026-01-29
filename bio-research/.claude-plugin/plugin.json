@@ -1,7 +1,7 @@
 {
   "name": "bio-research",
   "version": "1.0.0",
-  "description": "One-stop shop for biological research — literature search, data analysis, pipeline execution, clinical trials, and scientific strategy",
+  "description": "End-to-end support for biological research, from literature search and single-cell analysis to sequencing pipelines and clinical trial design. Covers drug discovery workflows and scientific strategy.",
   "author": {
     "name": "Jake Marsh"
   }

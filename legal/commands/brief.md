@@ -1,6 +1,15 @@
+---
+description: Generate contextual briefings for legal work — daily summary, topic research, or incident response
+argument-hint: "[daily | topic <query> | incident]"
+---
+
 # /brief -- Legal Team Briefing
 
+> If you see unfamiliar placeholders or need to check which tools are connected, see [CONNECTORS.md](../CONNECTORS.md).
+
 Generate contextual briefings for legal work. Supports three modes: daily brief, topic brief, and incident brief.
+
+**Important**: This command assists with legal workflows but does not provide legal advice. Briefings should be reviewed by qualified legal professionals before being relied upon.
 
 ## Invocation
 
