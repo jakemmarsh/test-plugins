@@ -43,15 +43,14 @@ Display Connect buttons to let users install/connect MCPs.
 
 ## Workflow
 
-1. **Find placeholder**: `{{tool:project-management}}`
-2. **Check Phase 1 findings**: Did you already learn which tool they use?
+1. **Find customization point**: Look for `~~`-prefixed values (e.g., `~~Jira`)
+2. **Check earlier phase findings**: Did you already learn which tool they use?
    - **Yes**: Search for that specific tool to get its `url`, skip to step 5
    - **No**: Continue to step 3
 3. **Search**: Call `search_mcp_registry` with mapped keywords
 4. **Present choices and ask user**: Show all results, ask which they use
 5. **Connect if needed**: If not connected, call `suggest_connectors`
 6. **Update MCP config**: Add config using the `url` from search results
-7. **Replace placeholder**: Use the chosen tool name
 
 ## Updating Plugin MCP Configuration
 

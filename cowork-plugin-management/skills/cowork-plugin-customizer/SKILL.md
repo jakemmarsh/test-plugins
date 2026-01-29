@@ -9,20 +9,29 @@ compatibility: Requires Cowork desktop app environment with access to mounted pl
 
 # Cowork Plugin Customization
 
-Adapt a generic plugin template to a specific organization by replacing `{{tool:category}}` placeholders with actual tool names, configuring MCP servers, and applying organization-specific customizations.
+Adapt a generic plugin template to a specific organization by replacing customization points with actual tool names, configuring MCP servers, and applying organization-specific customizations.
 
 > **Finding the plugin**: To find the plugin's source files, run `find mnt/.local-plugins mnt/.plugins -type d -name "*<plugin-name>*"` to locate the plugin directory, then read its files to understand its structure before making changes. If you cannot find the plugin directory, the user is likely running this conversation in a remote container. Abort and let them know: "Customizing plugins is currently only available in the desktop app's Cowork mode."
 
 ## Overview
 
-Generic plugins use `{{tool:category}}` placeholders (e.g., `{{tool:project-management}}`, `{{tool:source-control}}`) that get replaced with actual tool names (e.g., "Asana", "GitHub") during customization.
+Generic plugins mark customization points with a `~~` prefix. Any line or value starting with `~~` is a placeholder that should be replaced during customization (e.g., `~~Jira` → `Asana`, `~~your-team-channel` → `#engineering`). To find all customization points in a plugin, use:
+
+```bash
+grep -rn '~~\w' /path/to/plugin --include='*.md' --include='*.json'
+```
+
+> **Important**: Never change the name of the plugin or skill being customized. Only replace `~~`-prefixed placeholder values and update content — do not rename directories, files, or the plugin/skill name fields.
+
+> **Nontechnical output**: All user-facing output (todo list items, questions, summaries) must be written in plain, nontechnical language. Never mention `~~` prefixes, placeholders, or customization points to the user. Frame everything in terms of learning about the organization and its tools.
 
 The process:
 1. **Gather context** — use knowledge MCPs to learn what tools and processes the organization uses
-2. **Create todo list** — parse the plugin's `setup/CHECKLIST.md` into trackable items
+2. **Create todo list** — grep for `~~\w` to find all customization points and build a todo list
 3. **Complete todo items** — apply gathered context, falling back to user questions when unclear
+4. **Search for useful MCPs** — find and connect MCPs for identified tools
 
-If an answer cannot be found via knowledge MCPs or user input, leave the placeholder unchanged for a future customization cycle.
+If an answer cannot be found via knowledge MCPs or user input, leave the customization point unchanged for a future customization cycle.
 
 ## Customization Workflow
 
@@ -31,7 +40,7 @@ If an answer cannot be found via knowledge MCPs or user input, leave the placeho
 Use company-internal knowledge MCPs to collect information. See `references/search-strategies.md` for detailed query patterns by category.
 
 **What to gather:**
-- Tool names for each placeholder category
+- Tool names for each `~~`-prefixed placeholder
 - Organizational processes and workflows
 - Team conventions (naming, statuses, estimation scales)
 - Configuration values (workspace IDs, project names, team identifiers)
@@ -43,9 +52,9 @@ Use company-internal knowledge MCPs to collect information. See `references/sear
 
 Record all findings for use in Phase 3.
 
-### Phase 2: Create Todo List from Checklist
+### Phase 2: Create Todo List from Customization Points
 
-Read `setup/CHECKLIST.md` in the plugin directory. Create a todo list with user-friendly descriptions that focus on learning about the organization:
+Run `grep -rn '~~\w' /path/to/plugin --include='*.md' --include='*.json'` to find all customization points. Group them by theme and create a todo list with user-friendly descriptions that focus on learning about the organization:
 
 - **Good**: "Learn how standup prep works at Company"
 - **Bad**: "Replace placeholders in commands/standup-prep.md"
@@ -60,28 +69,22 @@ Work through each item using Phase 1 context.
 
 **Types of changes:**
 
-1. **Placeholder replacements**: `{{tool:project-management}}` → `Asana`
+1. **Customization point replacements**: `~~Jira` → `Asana`, `~~your-org-channel` → `#engineering`
 2. **URL pattern updates**: `tickets.example.com/your-team/123` → `app.asana.com/0/PROJECT_ID/TASK_ID`
-3. **MCP configuration**: Update `.mcp.json` with server configs (see Configuring MCPs below)
-4. **Organization-specific values**: Workspace IDs, project names, team identifiers
+3. **Organization-specific values**: Workspace IDs, project names, team identifiers
 
-If user doesn't know or skips, leave the placeholder unchanged.
+If user doesn't know or skips, leave the `~~`-prefixed value unchanged.
 
-## Configuring MCPs
+### Phase 4: Search for Useful MCPs
 
-For each `{{tool:category}}` placeholder, connect the appropriate MCP. See `references/mcp-servers.md` for the full workflow, category-to-keywords mapping, and config file format.
+After all customization points have been resolved, connect MCPs for the tools that were identified. See `references/mcp-servers.md` for the full workflow, category-to-keywords mapping, and config file format.
 
-**If Phase 1 already identified the tool:**
-1. Search the registry for that specific tool to get its `url`
-2. Skip presenting options — connect directly if needed
+For each tool identified during customization:
+1. Search the registry: `search_mcp_registry(keywords=[...])` using category keywords from `references/mcp-servers.md`, or search for the specific tool name if already known
+2. If unconnected: `suggest_connectors(directoryUuids=["chosen-uuid"])` — user completes OAuth
+3. Update the plugin's MCP config file (check `plugin.json` for custom location, otherwise `.mcp.json` at root)
 
-**If the tool is unknown:**
-1. `search_mcp_registry(keywords=[...])` using category keywords from `references/mcp-servers.md`
-2. Present matching MCPs to the user (name, description, connection status)
-3. Ask user to choose
-4. If unconnected: `suggest_connectors(directoryUuids=["chosen-uuid"])` — user completes OAuth
-5. Update the plugin's MCP config file (check `plugin.json` for custom location, otherwise `.mcp.json` at root)
-6. Replace the placeholder with the chosen tool name
+Collect all MCP results and present them together in the summary output (see below) — don't present MCPs one at a time during this phase.
 
 **Note:** First-party integrations (Gmail, Google Calendar, Google Drive) are connected at the user level and don't need plugin `.mcp.json` entries.
 
@@ -101,7 +104,7 @@ After all customizations are applied, package the plugin as a `.plugin` file for
 
 ## Summary Output
 
-After customization, summarize what was learned grouped by source:
+After customization, present the user with a summary of what was learned grouped by source. Always include the MCPs sections showing which MCPs were connected during setup and which ones the user should still connect:
 
 ```markdown
 ## From searching Slack
@@ -114,6 +117,11 @@ After customization, summarize what was learned grouped by source:
 ## From your answers
 - Ticket statuses are: Backlog, In Progress, In Review, Done
 ```
+
+Then present the MCPs that were connected during setup and any that the user should still connect, with instructions on how to connect them.
+
+If no knowledge MCPs were available in Phase 1, and the user had to answer at least one question manually, include a note at the end:
+> By the way, connecting sources like Slack or Microsoft Teams would let me find answers automatically next time you customize a plugin.
 
 ## Additional Resources
 
