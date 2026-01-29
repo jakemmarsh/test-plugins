@@ -65,7 +65,7 @@ Work through each item using Phase 1 context.
 
 **If knowledge MCPs provided a clear answer**: Apply directly without confirmation.
 
-**Otherwise**: Use AskUserQuestion. Don't assume "industry standard" defaults are correct — if knowledge MCPs didn't provide a specific answer, ask.
+**Otherwise**: Use AskUserQuestion. Don't assume "industry standard" defaults are correct — if knowledge MCPs didn't provide a specific answer, ask. Note: AskUserQuestion always includes a Skip button and a free-text input box for custom answers, so do not include `None` or `Other` as options.
 
 **Types of changes:**
 
@@ -96,7 +96,7 @@ After all customizations are applied, package the plugin as a `.plugin` file for
    ```bash
    cd /path/to/plugin && zip -r /tmp/plugin-name.plugin . -x "setup/*" && cp /tmp/plugin-name.plugin /path/to/outputs/plugin-name.plugin
    ```
-2. **Present the file to the user** with the `.plugin` extension so they can install it directly.
+2. **Present the file to the user** with the `.plugin` extension so they can install it directly. (Presenting the .plugin file will show to the user as a rich preview where they can look through the plugin files, and they can accept the customization by pressing a button.)
 
 > **Important**: Always create the zip in `/tmp/` first, then copy to the outputs folder. Writing directly to the outputs folder may fail due to permissions and leave behind temporary files.
 
