@@ -1,7 +1,7 @@
 {
-  "name": "test-plugins",
+  "name": "anthropic-plugins-legacy",
   "owner": {
-    "name": "Jake Marsh"
+    "name": "Anthropic"
   },
   "plugins": [
     {
